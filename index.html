@@ -3,273 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080810">
+<meta name="theme-color" content="#06080e">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Master Plan">
-<title>Master Study Plan – College + SAL1</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:opsz,wght@9..144,300;9..144,700&display=swap" rel="stylesheet">
+<title>Master Plan – VTU + SAL1</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:      #080810;
-  --bg2:     #0f0f1c;
-  --bg3:     #171728;
-  --bg4:     #1e1e32;
-  --border:  #252538;
-  --border2: #353552;
-  --text:    #e2e2f0;
-  --muted:   #6060a0;
-  --muted2:  #4040708;
-  --sal:     #38d9f5;
-  --sal-dim: #041820;
-  --clg:     #ff7043;
-  --clg-dim: #200a04;
-  --done:    #4ade80;
-  --done-dim:#042010;
-  --warn:    #fbbf24;
-  --warn-dim:#1a1000;
-  --exam:    #f472b6;
-  --exam-dim:#200010;
-  --quiz:    #a78bfa;
-  --quiz-dim:#100820;
-}
+:root{--bg:#06080e;--bg2:#0c1018;--bg3:#141b25;--bg4:#1c2535;--border:#1e2d42;--border2:#2a3f58;--text:#dce8f5;--muted:#4a6070;--sal:#00dfc8;--sal-dim:#031f1c;--clg:#ff7a45;--clg-dim:#1f0a00;--done:#34d058;--done-dim:#051a0a;--warn:#ffd460;--warn-dim:#1a1200;--exam:#f85149;--exam-dim:#1f0500;--lab:#b48af0;--lab-dim:#120a22;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
-
-/* ── NOISE TEXTURE ── */
-body::before{
-  content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:0;opacity:.4;
-}
-
-/* ── HEADER ── */
-.header{
-  background:linear-gradient(180deg,#0d0d1f 0%,#080810 100%);
-  border-bottom:1px solid var(--border);
-  padding:18px 14px 14px;
-  position:sticky;top:0;z-index:100;
-  backdrop-filter:blur(20px);
-}
-.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-.brand{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700;letter-spacing:-0.03em;line-height:1;}
-.brand .c{color:var(--clg);}
-.brand .s{color:var(--sal);}
-.deadline-pill{
-  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
-  color:var(--warn);background:var(--warn-dim);
-  padding:3px 9px;border-radius:20px;border:1px solid rgba(251,191,36,.3);
-  animation:pulse-warn 2s ease-in-out infinite;
-}
-@keyframes pulse-warn{0%,100%{opacity:1;}50%{opacity:.6;}}
-
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5;}
+.header{background:linear-gradient(180deg,#0a1220 0%,#06080e 100%);border-bottom:1px solid var(--border);padding:16px 14px 12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(24px);}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.brand{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:-0.04em;}
+.brand .c{color:var(--clg);}.brand .s{color:var(--sal);}
+.deadline-pill{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--exam);background:var(--exam-dim);padding:3px 9px;border-radius:20px;border:1px solid rgba(248,81,73,.3);animation:pulse-warn 2s ease-in-out infinite;}
+@keyframes pulse-warn{0%,100%{opacity:1;}50%{opacity:.55;}}
 .progress-row{display:flex;gap:8px;}
 .pbar-wrap{flex:1;}
-.pbar-label{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;display:flex;justify-content:space-between;color:var(--muted);}
-.pbar-label.clg-lbl{color:var(--clg);}
-.pbar-label.sal-lbl{color:var(--sal);}
+.pbar-label{font-size:0.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;display:flex;justify-content:space-between;}
+.pbar-label.clg-lbl{color:var(--clg);}.pbar-label.sal-lbl{color:var(--sal);}
 .pbar-pct{font-family:'JetBrains Mono',monospace;}
-.pbar-track{height:4px;background:var(--bg4);border-radius:10px;overflow:hidden;}
-.pbar-fill{height:100%;border-radius:10px;transition:width .5s cubic-bezier(.4,0,.2,1);}
-.pbar-fill.clg{background:linear-gradient(90deg,#a03020,var(--clg));}
-.pbar-fill.sal{background:linear-gradient(90deg,#0a6070,var(--sal));}
-
-/* ── VIEWS ── */
-.view{display:none;padding:12px 12px 88px;position:relative;z-index:1;}
+.pbar-track{height:3px;background:var(--bg4);border-radius:10px;overflow:hidden;}
+.pbar-fill{height:100%;border-radius:10px;transition:width .6s cubic-bezier(.4,0,.2,1);}
+.pbar-fill.clg{background:linear-gradient(90deg,#a03a18,var(--clg));}.pbar-fill.sal{background:linear-gradient(90deg,#006058,var(--sal));}
+.view{display:none;padding:10px 12px 92px;position:relative;z-index:1;}
 .view.active{display:block;}
-
-/* ── TODAY CARD ── */
-.today-card{
-  background:var(--bg2);border:1px solid var(--border2);
-  border-radius:16px;padding:14px;margin-bottom:14px;
-  position:relative;overflow:hidden;
-}
-.today-card::before{
-  content:'';position:absolute;top:-30px;right:-30px;
-  width:120px;height:120px;border-radius:50%;
-  background:radial-gradient(circle,rgba(56,217,245,.08) 0%,transparent 70%);
-}
-.today-label{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;}
-.today-date{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:12px;color:var(--text);}
-.today-blocks{display:flex;flex-direction:column;gap:5px;}
-.time-block{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-radius:10px;border-left:3px solid;}
-.time-block.college{background:rgba(255,112,67,.06);border-color:var(--clg);}
-.time-block.sal1{background:rgba(56,217,245,.06);border-color:var(--sal);}
-.time-block.rest{background:var(--bg3);border-color:var(--border2);}
-.time-block.quiz-block{background:rgba(167,139,250,.06);border-color:var(--quiz);}
-.tb-time{font-family:'JetBrains Mono',monospace;font-size:0.63rem;color:var(--muted);min-width:72px;padding-top:1px;}
-.tb-text{font-size:0.82rem;font-weight:600;line-height:1.2;}
-.tb-sub{font-size:0.66rem;color:var(--muted);margin-top:2px;}
-
-/* ── WEEK BLOCKS ── */
-.week-block{margin-bottom:18px;}
-.week-header{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 12px;border-radius:12px 12px 0 0;
-  border-left:4px solid;cursor:pointer;user-select:none;
-  transition:filter .15s;
-}
+.today-card{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden;}
+.today-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(0,223,200,.07) 0%,transparent 70%);}
+.today-label{font-size:0.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:4px;}
+.today-date{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:10px;}
+.today-blocks{display:flex;flex-direction:column;gap:4px;}
+.time-block{display:flex;align-items:flex-start;gap:10px;padding:8px 10px;border-radius:8px;border-left:3px solid;}
+.time-block.college{background:rgba(255,122,69,.05);border-color:var(--clg);}
+.time-block.sal1{background:rgba(0,223,200,.05);border-color:var(--sal);}
+.time-block.rest{background:var(--bg3);border-color:var(--border);}
+.time-block.exam-block{background:rgba(248,81,73,.06);border-color:var(--exam);}
+.time-block.lab-block{background:rgba(180,138,240,.06);border-color:var(--lab);}
+.tb-time{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--muted);min-width:74px;padding-top:1px;}
+.tb-text{font-size:0.8rem;font-weight:600;line-height:1.2;}
+.tb-sub{font-size:0.64rem;color:var(--muted);margin-top:2px;}
+.exam-notice{background:var(--exam-dim);border:1px solid rgba(248,81,73,.3);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:0.75rem;color:var(--exam);font-weight:600;}
+.week-block{margin-bottom:16px;}
+.week-header{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px 10px 0 0;border-left:4px solid;cursor:pointer;user-select:none;transition:filter .15s;}
 .week-header:hover{filter:brightness(1.1);}
-.week-header h2{font-family:'Fraunces',serif;font-size:0.88rem;font-weight:700;flex:1;line-height:1.2;}
-.week-pct{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;padding:2px 8px;background:rgba(0,0,0,.3);border-radius:20px;}
-.wdate{font-size:0.65rem;opacity:.6;}
-.wchev{font-size:0.65rem;transition:transform .2s;opacity:.6;}
+.week-header h2{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;flex:1;}
+.week-pct{font-family:'JetBrains Mono',monospace;font-size:0.65rem;padding:2px 7px;background:rgba(0,0,0,.35);border-radius:20px;}
+.wdate{font-size:0.62rem;opacity:.55;}.wchev{font-size:0.6rem;transition:transform .2s;opacity:.5;}
 .week-header.col .wchev{transform:rotate(-90deg);}
-.week-body{border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;}
-
-.w1 .week-header{background:#071a0f;border-color:#22d36e;color:#22d36e;}
-.w2 .week-header{background:#070f1a;border-color:var(--sal);color:var(--sal);}
-.w3 .week-header{background:#130a1f;border-color:var(--quiz);color:var(--quiz);}
-.w4 .week-header{background:#1a1007;border-color:var(--warn);color:var(--warn);}
-.w5 .week-header{background:#1a0710;border-color:var(--exam);color:var(--exam);}
-.w6 .week-header{background:#071018;border-color:#60c8ff;color:#60c8ff;}
-
-/* ── DAY ROWS ── */
-.day-row{border-bottom:1px solid var(--bg3);}
-.day-row:last-child{border-bottom:none;}
-.day-header{
-  display:flex;align-items:center;gap:8px;
-  padding:9px 12px;background:var(--bg2);
-  cursor:pointer;user-select:none;transition:background .1s;
-}
+.week-body{border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;overflow:hidden;}
+.w1 .week-header{background:#071d15;border-color:#00dfc8;color:#00dfc8;}
+.w2 .week-header{background:#1a0d00;border-color:var(--clg);color:var(--clg);}
+.w3 .week-header{background:#120a22;border-color:var(--lab);color:var(--lab);}
+.w4 .week-header{background:#1a1200;border-color:var(--warn);color:var(--warn);}
+.w5 .week-header{background:#140a22;border-color:#a78bfa;color:#a78bfa;}
+.w6 .week-header{background:#1a0300;border-color:var(--exam);color:var(--exam);}
+.day-row{border-bottom:1px solid var(--bg3);}.day-row:last-child{border-bottom:none;}
+.day-header{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg2);cursor:pointer;user-select:none;transition:background .1s;}
 .day-header:hover{background:var(--bg3);}
-.day-header.today-row{background:rgba(56,217,245,.05);border-left:2px solid var(--sal);}
-.day-name{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;color:var(--sal);min-width:32px;}
-.day-date{font-size:0.72rem;color:var(--muted);flex:1;}
-.day-badge{font-size:0.6rem;font-weight:700;padding:2px 7px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
-.badge-todo{background:var(--bg4);color:var(--muted);}
-.badge-prog{background:var(--warn-dim);color:var(--warn);}
-.badge-done{background:var(--done-dim);color:var(--done);}
-.dchev{font-size:0.62rem;color:var(--muted);transition:transform .2s;}
+.day-header.today-row{background:rgba(0,223,200,.04);border-left:2px solid var(--sal);}
+.day-name{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:700;color:var(--sal);min-width:32px;}
+.day-date{font-size:0.7rem;color:var(--muted);flex:1;}
+.day-badge{font-size:0.58rem;font-weight:700;padding:2px 7px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+.badge-todo{background:var(--bg4);color:var(--muted);}.badge-prog{background:var(--warn-dim);color:var(--warn);}.badge-done{background:var(--done-dim);color:var(--done);}
+.dchev{font-size:0.6rem;color:var(--muted);transition:transform .2s;}
 .day-header.col .dchev{transform:rotate(-90deg);}
-.day-content{background:var(--bg);padding:0;}
-
-/* section labels */
-.sec-label{
-  padding:5px 12px 3px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:0.6rem;font-weight:500;
-  text-transform:uppercase;letter-spacing:.08em;
-  border-top:1px solid var(--bg3);
-}
-.sec-label.sal-lbl{color:var(--sal);background:rgba(56,217,245,.03);}
-.sec-label.clg-lbl{color:var(--clg);background:rgba(255,112,67,.03);}
-.sec-label.quiz-lbl{color:var(--quiz);background:rgba(167,139,250,.05);}
-
-/* task items */
+.day-content{background:var(--bg);}
+.exam-row .day-name{color:var(--exam);}.lab-row .day-name{color:var(--lab);}.vtu-row .day-name{color:var(--warn);}
+.sal-exam-row .day-name{color:#00dfc8;font-size:0.8rem;}
+.sec-label{padding:5px 12px 3px;font-family:'JetBrains Mono',monospace;font-size:0.58rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;border-top:1px solid var(--bg3);}
+.sec-label.sal-lbl{color:var(--sal);background:rgba(0,223,200,.03);}
+.sec-label.clg-lbl{color:var(--clg);background:rgba(255,122,69,.03);}
 .task-list{padding:2px 8px 8px;background:var(--bg);}
-.task-item{
-  display:flex;align-items:flex-start;gap:8px;
-  padding:6px 6px;border-radius:8px;
-  cursor:pointer;transition:background .1s;
-}
+.task-item{display:flex;align-items:flex-start;gap:8px;padding:6px 6px;border-radius:7px;cursor:pointer;transition:background .1s;}
 .task-item:hover{background:var(--bg2);}
-.task-item.done{opacity:.4;}
-.task-cb{
-  width:16px;height:16px;min-width:16px;
-  border:1.5px solid var(--border2);border-radius:4px;
-  display:flex;align-items:center;justify-content:center;
-  margin-top:2px;transition:all .15s;
-  font-size:9px;color:transparent;background:var(--bg3);
-}
+.task-item.done{opacity:.38;}
+.task-cb{width:15px;height:15px;min-width:15px;border:1.5px solid var(--border2);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .15s;font-size:9px;color:transparent;background:var(--bg3);}
 .task-item.done.sal-task .task-cb{background:var(--sal);border-color:var(--sal);color:#000;}
 .task-item.done.clg-task .task-cb{background:var(--clg);border-color:var(--clg);color:#000;}
-.task-item.done.quiz-task .task-cb{background:var(--quiz);border-color:var(--quiz);color:#000;}
-.task-text{font-size:0.79rem;line-height:1.4;}
+.task-text{font-size:0.77rem;line-height:1.4;}
 .task-name{font-weight:500;color:var(--text);}
 .task-item.done .task-name{text-decoration:line-through;color:var(--muted);}
-.task-tag{font-size:0.62rem;color:var(--muted);display:block;margin-top:1px;}
-
-/* exam day special */
-.exam-row .day-name{color:var(--exam);}
-.quiz-row .day-name{color:var(--quiz);}
-
-/* ── STATS VIEW ── */
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
-.stat-card{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:14px;padding:14px;
-  position:relative;overflow:hidden;
-}
-.stat-card::after{
-  content:'';position:absolute;bottom:-10px;right:-10px;
-  width:60px;height:60px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.03) 0%,transparent 70%);
-}
-.stat-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;line-height:1;}
-.stat-num.sal{color:var(--sal);}
-.stat-num.clg{color:var(--clg);}
-.stat-num.done{color:var(--done);}
-.stat-num.warn{color:var(--warn);}
-.stat-lbl{font-size:0.63rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
-
-.subject-bars{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:14px;}
-.subject-bars h3{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:700;margin-bottom:12px;}
-.sub-bar-row{margin-bottom:10px;}
-.sub-bar-info{display:flex;justify-content:space-between;margin-bottom:4px;font-size:0.73rem;}
-.sub-bar-name{font-weight:600;}
-.sub-bar-pct{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:0.68rem;}
-.sub-bar-track{height:5px;background:var(--bg4);border-radius:10px;overflow:hidden;}
+.task-tag{font-size:0.6rem;color:var(--muted);display:block;margin-top:1px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;position:relative;overflow:hidden;}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;line-height:1;}
+.stat-num.sal{color:var(--sal);}.stat-num.clg{color:var(--clg);}.stat-num.done{color:var(--done);}.stat-num.warn{color:var(--warn);}
+.stat-lbl{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
+.subject-bars{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:12px;}
+.subject-bars h3{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;margin-bottom:10px;}
+.sub-bar-row{margin-bottom:8px;}
+.sub-bar-info{display:flex;justify-content:space-between;margin-bottom:3px;font-size:0.7rem;}
+.sub-bar-name{font-weight:600;}.sub-bar-pct{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:0.65rem;}
+.sub-bar-track{height:4px;background:var(--bg4);border-radius:10px;overflow:hidden;}
 .sub-bar-fill{height:100%;border-radius:10px;background:var(--clg);transition:width .5s;}
 .sub-bar-fill.sal-fill{background:var(--sal);}
-
-.deadline-box{
-  background:var(--exam-dim);border:1px solid rgba(244,114,182,.25);
-  border-radius:14px;padding:16px;text-align:center;
-}
-.deadline-box h3{font-family:'Fraunces',serif;font-size:0.9rem;font-weight:700;color:var(--exam);margin-bottom:4px;}
-.deadline-days{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:var(--exam);line-height:1;}
-.deadline-box p{font-size:0.7rem;color:var(--muted);margin-top:6px;}
-
-/* install banner */
-#installBanner{display:none;background:var(--sal);color:#000;text-align:center;padding:8px 16px;font-size:0.73rem;font-weight:700;gap:8px;align-items:center;justify-content:center;z-index:200;position:relative;}
-#installBanner.show{display:flex;}
-#installBanner button{background:rgba(0,0,0,.2);border:1px solid rgba(0,0,0,.3);color:#000;padding:2px 8px;border-radius:6px;cursor:pointer;font-size:0.68rem;font-weight:700;}
-
-/* reset btn */
-.reset-btn{
-  display:block;margin:20px auto 0;
-  padding:8px 20px;background:var(--bg2);
-  border:1px solid var(--border);color:var(--muted);
-  border-radius:10px;cursor:pointer;font-size:0.75rem;
-  font-family:'Space Grotesk',sans-serif;transition:all .2s;
-}
+.exam-schedule-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:12px;}
+.exam-schedule-card h3{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;margin-bottom:10px;}
+.exam-row-item{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bg3);}
+.exam-row-item:last-child{border-bottom:none;}
+.exam-subj{font-size:0.75rem;font-weight:600;}
+.exam-date-tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--exam);background:var(--exam-dim);padding:2px 8px;border-radius:20px;}
+.sal-exam-tag{color:var(--sal);background:var(--sal-dim);border:1px solid rgba(0,223,200,.25);}
+.deadline-box{background:var(--exam-dim);border:1px solid rgba(248,81,73,.25);border-radius:12px;padding:16px;text-align:center;margin-top:12px;}
+.deadline-box h3{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;color:var(--exam);margin-bottom:4px;}
+.deadline-days{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:var(--exam);line-height:1;}
+.deadline-box p{font-size:0.68rem;color:var(--muted);margin-top:6px;}
+.reset-btn{display:block;margin:20px auto 0;padding:8px 20px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-size:0.73rem;font-family:'Outfit',sans-serif;transition:all .2s;}
 .reset-btn:hover{background:var(--bg3);color:var(--text);}
-
-/* bottom nav */
-.bnav{
-  position:fixed;bottom:0;left:0;right:0;
-  background:rgba(8,8,16,.92);border-top:1px solid var(--border);
-  display:flex;padding:8px 12px;
-  padding-bottom:calc(8px + env(safe-area-inset-bottom));
-  gap:4px;z-index:200;backdrop-filter:blur(20px);
-}
-.bnav-btn{
-  flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
-  padding:6px 4px;border-radius:10px;border:none;background:transparent;
-  color:var(--muted);cursor:pointer;font-family:'Space Grotesk',sans-serif;
-  font-size:0.59rem;font-weight:600;transition:all .15s;
-}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:rgba(6,8,14,.94);border-top:1px solid var(--border);display:flex;padding:8px 12px;padding-bottom:calc(8px + env(safe-area-inset-bottom));gap:4px;z-index:200;backdrop-filter:blur(20px);}
+.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;border-radius:8px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'Outfit',sans-serif;font-size:0.58rem;font-weight:600;transition:all .15s;}
 .bnav-btn.active{background:var(--bg3);color:var(--text);}
-.bnav-icon{font-size:1.05rem;}
+.bnav-icon{font-size:1rem;}
 </style>
 </head>
 <body>
-
-<div id="installBanner">
-  📲 Install for offline access
-  <button id="installBtn">Install</button>
-  <button onclick="document.getElementById('installBanner').classList.remove('show')" style="background:transparent;border:none;color:#000;opacity:.6;cursor:pointer;">✕</button>
-</div>
-
 <div class="header">
   <div class="header-top">
-    <div class="brand"><span class="c">College</span> + <span class="s">SAL1</span> Master Plan</div>
-    <div class="deadline-pill" id="voucherCountdown">⚡ Jun 1</div>
+    <div class="brand"><span class="c">VTU</span> + <span class="s">SAL1</span> Master Plan</div>
+    <div class="deadline-pill" id="voucherCountdown">⚡ Jun 2</div>
   </div>
   <div class="progress-row">
     <div class="pbar-wrap">
-      <div class="pbar-label clg-lbl">College <span class="pbar-pct" id="clgPct">0%</span></div>
+      <div class="pbar-label clg-lbl">VTU <span class="pbar-pct" id="clgPct">0%</span></div>
       <div class="pbar-track"><div class="pbar-fill clg" id="clgBar" style="width:0%"></div></div>
     </div>
     <div class="pbar-wrap">
@@ -279,933 +136,858 @@ body::before{
   </div>
 </div>
 
-<!-- TODAY VIEW -->
 <div class="view active" id="view-today">
   <div class="today-card">
     <div class="today-label">Today's Schedule</div>
     <div class="today-date" id="todayDate">Loading...</div>
-    <div class="today-blocks">
-      <div class="time-block college">
-        <div class="tb-time">8:00 – 1:30</div>
-        <div><div class="tb-text">🏫 College Classes</div><div class="tb-sub">Govt Engineering College Bidar</div></div>
-      </div>
-      <div class="time-block rest">
-        <div class="tb-time">1:30 – 2:30</div>
-        <div><div class="tb-text">🚌 Travel + Lunch</div><div class="tb-sub">1 hour commute home</div></div>
-      </div>
-      <div class="time-block college">
-        <div class="tb-time">2:30 – 5:30</div>
-        <div><div class="tb-text" id="todayCollegeTask">📚 College Study</div><div class="tb-sub" id="todayCollegeSub">Check plan below</div></div>
-      </div>
-      <div class="time-block sal1">
-        <div class="tb-time">5:30 – 8:30</div>
-        <div><div class="tb-text" id="todaySalTask">🛡️ SAL1 – TryHackMe</div><div class="tb-sub" id="todaySalSub">Check plan below</div></div>
-      </div>
-      <div class="time-block rest">
-        <div class="tb-time">8:30 – 11:00</div>
-        <div><div class="tb-text">🌙 Wind Down</div><div class="tb-sub">Dinner · light revision · sleep by 11</div></div>
-      </div>
+    <div class="today-blocks" id="todayBlocks">
+      <div class="time-block college"><div class="tb-time">8:00 – 1:30</div><div><div class="tb-text">🏫 College</div><div class="tb-sub">GEC Bidar – attend + light notes</div></div></div>
+      <div class="time-block rest"><div class="tb-time">1:30 – 2:30</div><div><div class="tb-text">🚌 Travel + Lunch</div><div class="tb-sub">1 hr commute home</div></div></div>
+      <div class="time-block college" id="vtuBlock"><div class="tb-time">2:30 – 5:30</div><div><div class="tb-text" id="todayVtuTask">📚 VTU Study</div><div class="tb-sub" id="todayVtuSub">Check plan below</div></div></div>
+      <div class="time-block sal1" id="salBlock"><div class="tb-time">5:30 – 8:30</div><div><div class="tb-text" id="todaySalTask">🛡️ TryHackMe</div><div class="tb-sub" id="todaySalSub">Check plan below</div></div></div>
+      <div class="time-block rest"><div class="tb-time">8:30 – 11:00</div><div><div class="tb-text">🌙 Wind Down</div><div class="tb-sub">Dinner · recap · sleep by 11</div></div></div>
     </div>
   </div>
   <div id="todayWeekContainer"></div>
 </div>
 
-<!-- PLAN VIEW -->
 <div class="view" id="view-plan">
   <div id="planContainer"></div>
   <button class="reset-btn" onclick="resetAll()">🔄 Reset All Progress</button>
 </div>
 
-<!-- STATS VIEW -->
 <div class="view" id="view-stats">
   <div class="stats-grid">
     <div class="stat-card"><div class="stat-num sal" id="statSalDone">0</div><div class="stat-lbl">SAL1 Done</div></div>
-    <div class="stat-card"><div class="stat-num clg" id="statClgDone">0</div><div class="stat-lbl">College Done</div></div>
-    <div class="stat-card"><div class="stat-num warn" id="statDaysLeft">0</div><div class="stat-lbl">Days to Jun 1</div></div>
+    <div class="stat-card"><div class="stat-num clg" id="statClgDone">0</div><div class="stat-lbl">VTU Done</div></div>
+    <div class="stat-card"><div class="stat-num warn" id="statDaysLeft">0</div><div class="stat-lbl">Days to Jun 2</div></div>
     <div class="stat-card"><div class="stat-num done" id="statTotal">0</div><div class="stat-lbl">Total Tasks</div></div>
   </div>
+  <div class="exam-schedule-card">
+    <h3>📅 Exam Schedule</h3>
+    <div class="exam-row-item"><span class="exam-subj">🛡️ SAL1 Certification</span><span class="exam-date-tag sal-exam-tag">Jun 2 AM</span></div>
+    <div class="exam-row-item"><span class="exam-subj">☁️ Cloud Computing (BCS601)</span><span class="exam-date-tag">May 26 · 2–5pm</span></div>
+    <div class="exam-row-item"><span class="exam-subj">🤖 Machine Learning (BCS602)</span><span class="exam-date-tag">Jun 1 · 2–5pm</span></div>
+    <div class="exam-row-item"><span class="exam-subj">☕ Advanced Java (BCS613D)</span><span class="exam-date-tag">Jun 4 · 2–5pm</span></div>
+    <div class="exam-row-item"><span class="exam-subj">📱 Mobile App Dev (BIS654C)</span><span class="exam-date-tag">Jun 9 · 2–5pm</span></div>
+    <div class="exam-row-item"><span class="exam-subj">📘 5th Subject (B**657)</span><span class="exam-date-tag">Jun 12 · 2–5pm</span></div>
+  </div>
   <div class="subject-bars">
-    <h3>📚 College Progress</h3>
+    <h3>📚 VTU Subject Progress</h3>
     <div id="subjectBars"></div>
   </div>
-  <div class="subject-bars" style="margin-top:14px;">
-    <h3>🛡️ SAL1 Module Progress</h3>
+  <div class="subject-bars">
+    <h3>🛡️ SAL1 Phase Progress</h3>
     <div id="salModuleBars"></div>
   </div>
-  <div class="deadline-box" style="margin-top:14px;">
+  <div class="deadline-box">
     <h3>🎯 SAL1 Exam Countdown</h3>
     <div class="deadline-days" id="bigCountdown">–</div>
-    <p>Days remaining · Target exam: <strong style="color:var(--exam)">May 17, 2026</strong><br>Hard deadline: Jun 1, 2026</p>
+    <p>Days remaining · Target exam: <strong style="color:var(--sal)">Jun 2, 2026 (morning)</strong><br>Voucher expires: <strong style="color:var(--exam)">Jun 2, 2026</strong></p>
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
 <div class="bnav">
-  <button class="bnav-btn active" id="btn-today" onclick="switchView('today')">
-    <span class="bnav-icon">📅</span>Today
-  </button>
-  <button class="bnav-btn" id="btn-plan" onclick="switchView('plan')">
-    <span class="bnav-icon">📋</span>Plan
-  </button>
-  <button class="bnav-btn" id="btn-stats" onclick="switchView('stats')">
-    <span class="bnav-icon">📊</span>Stats
-  </button>
+  <button class="bnav-btn active" id="btn-today" onclick="switchView('today')"><span class="bnav-icon">📅</span>Today</button>
+  <button class="bnav-btn" id="btn-plan" onclick="switchView('plan')"><span class="bnav-icon">📋</span>Plan</button>
+  <button class="bnav-btn" id="btn-stats" onclick="switchView('stats')"><span class="bnav-icon">📊</span>Stats</button>
 </div>
 
 <script>
-// ─────────────────────────────────────────────
-// DATA  — Rebuilt from scratch Apr 11, 2026
-// SOC Level 1 path (2025 revamped), 14 modules
-// College: BCS601(Cloud), BCS602(ML), BIS654C(Mobile), BCS613D(Adv Java)
-// ─────────────────────────────────────────────
 const DAYS = [
+// ══ WEEK 1 — CS101 Phase 1 (Apr 30 – May 6) ══
+{week:1,dn:'WED',dd:'Apr 30',college:[
+  {sec:'VTU · Advanced Java + Cloud (M1-2 review)',tasks:[
+    ['String Handling – constructors, operations, comparison','BCS613D › Module 2'],
+    ['Cloud Computing – Scalable Computing, Network-Based Systems','BCS601 › Module 1'],
+  ]}],sal:[
+  {sec:'CS101 · S1 Start Your Journey',tasks:[
+    ['Offensive Security Intro','CS101 › S1'],
+    ['Defensive Security Intro','CS101 › S1'],
+    ['Search Skills','CS101 › S1'],
+  ]},
+  {sec:'CS101 · S2 Linux Fundamentals',tasks:[
+    ['Linux Fundamentals Part 1','CS101 › S2'],
+  ]},
+]},
 
-  // ══════════════════════════════════════
-  // WEEK 1 — Soft Reset + Quiz Prep
-  // Apr 13–19
-  // ══════════════════════════════════════
-  { week:1, dn:'MON', dd:'Apr 13', college:[
-      {sec:'Cloud Computing – Intro', tasks:[
-        ['Scalable Computing, Network-Based Systems','BCS601 › Module 1'],
-        ['System Models for Distributed & Cloud Computing','BCS601 › Module 1'],
-      ]},
-    ], sal:[
-      // SAL1 Domain 1: Fundamental Knowledge
-      {sec:'SAL1 D1 – Network Essentials', tasks:[
-        ['Networking Concepts (CS101)','SAL1 › Domain 1 – Fundamentals'],
-        ['Networking Essentials (CS101)','SAL1 › Domain 1 – Fundamentals'],
-        ['Networking Core Protocols (CS101)','SAL1 › Domain 1 – Fundamentals'],
-      ]},
-    ]},
+{week:1,dn:'THU',dd:'May 1',college:[
+  {sec:'VTU · Machine Learning (M1-2)',tasks:[
+    ['Univariate & Bivariate Data Analysis','BCS602 › Module 1'],
+    ['Feature Engineering & Dimensionality Reduction','BCS602 › Module 2'],
+  ]}],sal:[
+  {sec:'CS101 · S2 Linux cont.',tasks:[
+    ['Linux Fundamentals Part 2','CS101 › S2'],
+    ['Linux Fundamentals Part 3','CS101 › S2'],
+  ]},
+  {sec:'CS101 · S3 Windows & AD',tasks:[
+    ['Windows Fundamentals 1','CS101 › S3'],
+  ]},
+]},
 
-  { week:1, dn:'TUE', dd:'Apr 14', college:[
-      {sec:'Quiz Prep + Mobile App Dev', tasks:[
-        ['Quiz Prep – CSE fundamentals revision','Quiz Prep'],
-        ['Android OS intro, architecture, ADT setup','BIS654C › Module 1'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D1 – OS & Crypto Basics', tasks:[
-        ['Windows Fundamentals 1 (CS101)','SAL1 › Domain 1 – Fundamentals'],
-        ['Windows Fundamentals 2 (CS101)','SAL1 › Domain 1 – Fundamentals'],
-        ['Linux Fundamentals Part 1 (CS101)','SAL1 › Domain 1 – Fundamentals'],
-      ]},
-    ]},
+{week:1,dn:'FRI',dd:'May 2',college:[
+  {sec:'VTU · Cloud Computing (M2)',tasks:[
+    ['Virtualization of CPU, Memory, I/O','BCS601 › Module 2'],
+    ['Implementation Levels of Virtualization','BCS601 › Module 2'],
+  ]}],sal:[
+  {sec:'CS101 · S3 Windows & AD cont.',tasks:[
+    ['Windows Fundamentals 2','CS101 › S3'],
+    ['Windows Fundamentals 3','CS101 › S3'],
+    ['Active Directory Basics','CS101 › S3'],
+  ]},
+]},
 
-  { week:1, dn:'WED', dd:'Apr 15', quiz:true, college:[
-      {sec:'🏆 Quiz Competition Day', tasks:[
-        ['Attend Quiz Competition – all the best! 🎉','Quiz Competition'],
-        ['Quick ML revision after competition','BCS602 › Revision'],
-      ]},
-    ], sal:[
-      {sec:'Light SAL1 – No pressure today', tasks:[
-        ['Linux Fundamentals Part 2 (CS101)','SAL1 › Domain 1 – Fundamentals'],
-      ]},
-    ]},
+{week:1,dn:'SAT',dd:'May 3',college:[
+  {sec:'VTU · Mobile App Dev (M1-2)',tasks:[
+    ['Android OS intro, architecture, ADT setup','BIS654C › Module 1'],
+    ['UI components – TextView, Button, EditText, Spinner','BIS654C › Module 2'],
+  ]}],sal:[
+  {sec:'CS101 · S4 Command Line',tasks:[
+    ['Windows Command Line','CS101 › S4'],
+    ['Windows PowerShell','CS101 › S4'],
+    ['Linux Shells','CS101 › S4'],
+  ]},
+  {sec:'CS101 · S5 Networking start',tasks:[
+    ['Networking Concepts','CS101 › S5'],
+  ]},
+]},
 
-  { week:1, dn:'THU', dd:'Apr 16', college:[
-      {sec:'Cloud Computing', tasks:[
-        ['Implementation Levels of Virtualization','BCS601 › Module 2'],
-        ['Virtualization of CPU, Memory, I/O devices','BCS601 › Module 2'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D1 – OS, Cloud & Web Basics', tasks:[
-        ['Linux Fundamentals Part 3 (CS101)','SAL1 › Domain 1 – Fundamentals'],
-        ['Cryptography Basics (CS101)','SAL1 › Domain 1 – Fundamentals'],
-        ['Web Application Basics (CS101)','SAL1 › Domain 1 – Fundamentals'],
-      ]},
-    ]},
+{week:1,dn:'SUN',dd:'May 4',college:[
+  {sec:'VTU · All Subjects Revision (M1-2)',tasks:[
+    ['Cloud – Modules 1-2 key points revision','BCS601 › Revision'],
+    ['ML – Modules 1-2 key concepts revision','BCS602 › Revision'],
+  ]}],sal:[
+  {sec:'CS101 · S5 Networking cont.',tasks:[
+    ['Networking Essentials','CS101 › S5'],
+    ['Networking Core Protocols','CS101 › S5'],
+    ['Networking Secure Protocols','CS101 › S5'],
+  ]},
+]},
 
-  { week:1, dn:'FRI', dd:'Apr 17', college:[
-      {sec:'Advanced Java – Strings', tasks:[
-        ['String Handling – constructors, operations, comparison','BCS613D › Module 2'],
-        ['StringBuffer & StringBuilder','BCS613D › Module 2'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D2 – Cybersecurity Frameworks', tasks:[
-        ['Cyber Kill Chain','SAL1 › Domain 2 – Frameworks'],
-        ['MITRE ATT&CK (MITRE room)','SAL1 › Domain 2 – Frameworks'],
-        ['Pyramid of Pain','SAL1 › Domain 2 – Frameworks'],
-      ]},
-    ]},
+{week:1,dn:'MON',dd:'May 5',college:[
+  {sec:'VTU · Cloud Computing (M3)',tasks:[
+    ['Cloud Service Models – IaaS, PaaS, SaaS','BCS601 › Module 3'],
+    ['AWS, GAE, Azure – public cloud platforms','BCS601 › Module 3'],
+  ]}],sal:[
+  {sec:'CS101 · S5 Networking tools',tasks:[
+    ['Wireshark: The Basics','CS101 › S5'],
+    ['Tcpdump: The Basics','CS101 › S5'],
+    ['Nmap: The Basics','CS101 › S5'],
+  ]},
+]},
 
-  { week:1, dn:'SAT', dd:'Apr 18', college:[
-      {sec:'🔁 Week 1 Revision Sprint', tasks:[
-        ['Review Cloud Computing – Module 1 & 2 full notes','BCS601 › Revision'],
-        ['Revise Advanced Java – Module 1 & 2 + practice String questions','BCS613D › Revision'],
-        ['Review Mobile App Dev – Module 1 basics & ADT setup','BIS654C › Revision'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D1 – Full Consolidation', tasks:[
-        ['Complete any remaining CS101 rooms from D1 path','SAL1 › Domain 1 – Fundamentals'],
-        ['Make D1 flashcards: Networking, OS, Crypto & Web basics','SAL1 › Domain 1 – Fundamentals'],
-        ['D1 self-quiz – identify & note weak areas','SAL1 › Domain 1 – Fundamentals'],
-      ]},
-    ]},
+{week:1,dn:'TUE',dd:'May 6',college:[
+  {sec:'VTU · Machine Learning (M3)',tasks:[
+    ['KNN, Weighted KNN, Nearest Centroid','BCS602 › Module 3'],
+    ['Logistic Regression, Linear Regression','BCS602 › Module 3'],
+  ]}],sal:[
+  {sec:'CS101 · S6 Cryptography',tasks:[
+    ['Cryptography Basics','CS101 › S6'],
+    ['Public Key Cryptography Basics','CS101 › S6'],
+    ['Hashing Basics','CS101 › S6'],
+    ['John the Ripper: The Basics','CS101 › S6'],
+  ]},
+]},
 
-  { week:1, dn:'SUN', dd:'Apr 19', college:[
-      {sec:'📖 Pre-Week 2 Prep', tasks:[
-        ['Preview ML – Module 2 topics (skim textbook)','BCS602 › Module 2 Preview'],
-        ['Organise all Week 1 notes, labs & materials','Self Study'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D1→D2 Bridge', tasks:[
-        ['Final revision pass – all D1 key concepts','SAL1 › Domain 1 – Fundamentals'],
-        ['Read D2 learning path overview (Kill Chain notes review)','SAL1 › Domain 2 – Frameworks'],
-      ]},
-    ]},
+// ══ WEEK 2 — CS101 Defensive + 2nd Internals (May 7–13) ══
+{week:2,dn:'WED',dd:'May 7',exam2:true,college:[
+  {sec:'⚠️ 2nd Internal Exam Day 1',tasks:[
+    ['Internal Exam – Advanced Java + Cloud Computing','2nd Internal'],
+    ['Quick revision pass before exam','Self Study'],
+  ]}],sal:[
+  {sec:'CS101 · S10 Defensive Security (light)',tasks:[
+    ['Defensive Security Intro','CS101 › S10'],
+    ['SOC Fundamentals','CS101 › S10'],
+  ]},
+]},
 
-  // ══════════════════════════════════════
-  // WEEK 2 — Building Momentum
-  // Apr 20–26
-  // ══════════════════════════════════════
-  { week:2, dn:'MON', dd:'Apr 20', college:[
-      {sec:'Mobile App Dev – UI', tasks:[
-        ['UI components – TextView, Button, EditText','BIS654C › Module 2'],
-        ['CheckBox, RadioButton, Spinner, ListView','BIS654C › Module 2'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D2 – Frameworks cont.', tasks:[
-        ['Unified Kill Chain','SAL1 › Domain 2 – Frameworks'],
-        ['Summit (Challenge – Pyramid of Pain)','SAL1 › Domain 2 – Frameworks'],
-        ['Eviction (Challenge – MITRE ATT&CK)','SAL1 › Domain 2 – Frameworks'],
-      ]},
-    ]},
+{week:2,dn:'THU',dd:'May 8',exam2:true,college:[
+  {sec:'⚠️ 2nd Internal Exam Day 2',tasks:[
+    ['Internal Exam – Machine Learning + Mobile App Dev','2nd Internal'],
+  ]}],sal:[
+  {sec:'CS101 · S10 Defensive cont. (light)',tasks:[
+    ['Digital Forensics Fundamentals','CS101 › S10'],
+    ['Incident Response Fundamentals','CS101 › S10'],
+  ]},
+]},
 
-  { week:2, dn:'TUE', dd:'Apr 21', college:[
-      {sec:'📝 Revision & Catch-up', tasks:[
-        ['Review ML Module 1 key concepts','Self Study'],
-        ['Review Cloud Computing Module 1 notes','Self Study'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Social Engineering & Phishing', tasks:[
-        ['Phishing Analysis Fundamentals','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Phishing Emails in Action','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Phishing Analysis Tools','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:2,dn:'FRI',dd:'May 9',exam2:true,college:[
+  {sec:'⚠️ 2nd Internal Exam Day 3',tasks:[
+    ['Internal Exam – final paper','2nd Internal'],
+  ]}],sal:[
+  {sec:'CS101 · S10 + S11 (light)',tasks:[
+    ['Logs Fundamentals','CS101 › S10'],
+    ['Introduction to SIEM','CS101 › S11'],
+  ]},
+]},
 
-  { week:2, dn:'WED', dd:'Apr 22', college:[
-      {sec:'Machine Learning – Analysis', tasks:[
-        ['Univariate Data Analysis & Visualization','BCS602 › Module 1'],
-        ['Bivariate & Multivariate Data Analysis','BCS602 › Module 2'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Phishing cont.', tasks:[
-        ['Phishing Prevention','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['The Greenholt Phish (Challenge)','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Snapped Phish-ing Line (Challenge)','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:2,dn:'SAT',dd:'May 10',college:[
+  {sec:'VTU · Advanced Java (M3-4)',tasks:[
+    ['Swing – MVC, JLabel, JTextField, JButton','BCS613D › Module 3'],
+    ['Servlets – lifecycle, Tomcat, Servlet API','BCS613D › Module 4'],
+  ]}],sal:[
+  {sec:'CS101 · S11 Security Solutions',tasks:[
+    ['Firewall Fundamentals','CS101 › S11'],
+    ['IDS Fundamentals','CS101 › S11'],
+    ['Vulnerability Scanner Overview','CS101 › S11'],
+  ]},
+  {sec:'CS101 · S12 Defensive Tooling',tasks:[
+    ['CyberChef: The Basics','CS101 › S12'],
+  ]},
+]},
 
-  { week:2, dn:'THU', dd:'Apr 23', college:[
-      {sec:'Machine Learning – Feature Engineering', tasks:[
-        ['Feature Engineering & Dimensionality Reduction','BCS602 › Module 2'],
-        ['Design of Learning System, Modelling in ML','BCS602 › Module 2'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Network Attacks', tasks:[
-        ['Network Traffic Basics','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Wireshark: The Basics','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Wireshark: Packet Operations','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:2,dn:'SUN',dd:'May 11',college:[
+  {sec:'VTU · Mobile App Dev (M3)',tasks:[
+    ['Activity, Intent, Intent filter, Lifecycle','BIS654C › Module 3'],
+    ['Broadcast, Service, Multimedia – Audio/Video','BIS654C › Module 3'],
+  ]}],sal:[
+  {sec:'CS101 · S12 Tooling cont.',tasks:[
+    ['CAPA: The Basics','CS101 › S12'],
+    ['REMnux: Getting Started','CS101 › S12'],
+    ['FlareVM: Arsenal of Tools','CS101 › S12'],
+  ]},
+  {sec:'CS101 · S13 Career',tasks:[
+    ['Security Principles','CS101 › S13'],
+    ['Careers in Cyber','CS101 › S13'],
+  ]},
+]},
 
-  { week:2, dn:'FRI', dd:'Apr 24', college:[
-      {sec:'Cloud Computing – Services', tasks:[
-        ['Cloud Service Models, Data Center Design','BCS601 › Module 3'],
-        ['AWS, GAE, Azure – public cloud platforms','BCS601 › Module 3'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Network Attacks cont.', tasks:[
-        ['Wireshark: Traffic Analysis','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['NetworkMiner','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Network Discovery Detection','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:2,dn:'MON',dd:'May 12',college:[
+  {sec:'VTU · Cloud Computing (M4)',tasks:[
+    ['Cloud Data Encryption, OS & VM Security','BCS601 › Module 4'],
+    ['XOAR, Trusted Hypervisor, Mobile & Cloud Security','BCS601 › Module 4'],
+  ]}],sal:[
+  {sec:'CS101 · S14 OWASP ✅ CS101 COMPLETE',tasks:[
+    ['OWASP Top 10 2025: IAAA Failures','CS101 › S14'],
+    ['OWASP Top 10 2025: Application Design Flaws','CS101 › S14'],
+    ['OWASP Top 10 2025: Insecure Data Handling','CS101 › S14'],
+  ]},
+]},
 
-  { week:2, dn:'SAT', dd:'Apr 25', college:[
-      {sec:'Advanced Java – Swing (Weekend Catch-up)', tasks:[
-        ['Swing – origin, AWT, MVC, components','BCS613D › Module 3'],
-        ['JLabel, JTextField, JButton, JToggleButton','BCS613D › Module 3'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Web & Endpoint Attacks', tasks:[
-        ['Detecting Web Attacks','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Detecting Web Shells','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Detecting Web DDoS','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:2,dn:'TUE',dd:'May 13',college:[
+  {sec:'VTU · Machine Learning (M3-4)',tasks:[
+    ['Decision Tree – intro & induction algorithms','BCS602 › Module 3'],
+    ['Bayesian Learning – Bayes Theorem, Naive Bayes','BCS602 › Module 4'],
+  ]}],sal:[
+  {sec:'SOC L1 · S1 Blue Team Introduction',tasks:[
+    ['Junior Security Analyst Intro','SOC L1 › S1'],
+    ['SOC Role in Blue Team','SOC L1 › S1'],
+    ['Humans as Attack Vectors','SOC L1 › S1'],
+    ['Systems as Attack Vectors','SOC L1 › S1'],
+  ]},
+]},
 
-  { week:2, dn:'SUN', dd:'Apr 26', college:[
-      {sec:'Mobile App Dev – Activities (Weekend Catch-up)', tasks:[
-        ['Activity, Intent, Intent filter, Activity lifecycle','BIS654C › Module 3'],
-        ['Broadcast, Service, Multimedia – Audio/Video','BIS654C › Module 3'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Endpoint & Malware', tasks:[
-        ['Windows Logging for SOC','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Windows Threat Detection 1','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Malware Classification','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+// ══ WEEK 3 — SOC L1 S1-8 + Lab Internals (May 14–20) ══
+{week:3,dn:'WED',dd:'May 14',lab:true,college:[
+  {sec:'🔬 Lab Internal Day 1',tasks:[
+    ['Complete ML lab record (Exps 1–5)','BCSL606 › Lab Record'],
+    ['DevOps – Maven & Gradle exercises','BCSL657D › Lab'],
+  ]}],sal:[
+  {sec:'SOC L1 · S2 SOC Team Internals (light)',tasks:[
+    ['SOC L1 Alert Triage','SOC L1 › S2'],
+  ]},
+]},
 
-  // ══════════════════════════════════════
-  // WEEK 3 — Full Pace
-  // Apr 27 – May 3
-  // ══════════════════════════════════════
-  { week:3, dn:'MON', dd:'Apr 27', college:[
-      {sec:'⚠️ Internal Test 1 Prep', tasks:[
-        ['Advanced Java – Modules 1–2 full revision','BCS613D – Test 1'],
-        ['ML – Modules 1–2 key concepts','BCS602 – Test 1'],
-        ['Cloud Computing – Modules 1–2 revision','BCS601 – Test 1'],
-        ['Mobile App Dev – Modules 1–2 revision','BIS654C – Test 1'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Malware & LOLBAS cont.', tasks:[
-        ['Windows Threat Detection 2','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Living off the Land Attacks','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Linux Logging for SOC','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:3,dn:'THU',dd:'May 15',lab:true,college:[
+  {sec:'🔬 Lab Internal Day 2',tasks:[
+    ['Advanced Java lab – JDBC queries & Servlets','BCS613D › Lab'],
+  ]}],sal:[
+  {sec:'SOC L1 · S2 cont. (light)',tasks:[
+    ['SOC L1 Alert Reporting','SOC L1 › S2'],
+    ['SOC Workbooks and Lookups','SOC L1 › S2'],
+  ]},
+]},
 
-  { week:3, dn:'TUE', dd:'Apr 28', college:[
-      {sec:'Internal Test 1 – Final Prep', tasks:[
-        ['Practice Qs – Advanced Java','Self Study'],
-        ['Practice Qs – Machine Learning','Self Study'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D3 – Linux & C2', tasks:[
-        ['Linux Threat Detection 1','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Linux Threat Detection 2','SAL1 › Domain 3 – Malicious Behaviour'],
-        ['Data Exfiltration Detection','SAL1 › Domain 3 – Malicious Behaviour'],
-      ]},
-    ]},
+{week:3,dn:'FRI',dd:'May 16',lab:true,college:[
+  {sec:'🔬 Lab Internal Day 3',tasks:[
+    ['MAD lab – Activities, SQLite, Location Services','BIS654C › Lab'],
+  ]}],sal:[
+  {sec:'SOC L1 · S2 + SOC Sim (light)',tasks:[
+    ['SOC Metrics and Objectives','SOC L1 › S2'],
+    ['SOC Sim: Introduction to Phishing','SOC L1 › SOC Simulator'],
+  ]},
+]},
 
-  { week:3, dn:'WED', dd:'Apr 29', college:[
-      {sec:'ML – Regression', tasks:[
-        ['KNN, Weighted KNN, Nearest Centroid','BCS602 › Module 3'],
-        ['Linear & Multiple Linear Regression','BCS602 › Module 3'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D4 – Security Tools: EDR & SIEM', tasks:[
-        ['Introduction to EDR','SAL1 › Domain 4 – Security Tools'],
-        ['Introduction to SIEM','SAL1 › Domain 4 – Security Tools'],
-        ['Splunk: The Basics','SAL1 › Domain 4 – Security Tools'],
-      ]},
-    ]},
+{week:3,dn:'SAT',dd:'May 17',college:[
+  {sec:'VTU · Advanced Java (M5) + PYQs',tasks:[
+    ['JDBC – concept, driver types, packages','BCS613D › Module 5'],
+    ['Past question papers – Advanced Java','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S3 Core SOC Solutions',tasks:[
+    ['Introduction to EDR','SOC L1 › S3'],
+    ['Introduction to SIEM','SOC L1 › S3'],
+    ['Splunk: The Basics','SOC L1 › S3'],
+    ['Elastic Stack: The Basics','SOC L1 › S3'],
+  ]},
+]},
 
-  { week:3, dn:'THU', dd:'Apr 30', college:[
-      {sec:'ML – Classification', tasks:[
-        ['Logistic Regression, Polynomial Regression','BCS602 › Module 3'],
-        ['Decision Tree – intro & induction algorithms','BCS602 › Module 3'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D4 – SIEM Deep Dive', tasks:[
-        ['Elastic Stack: The Basics','SAL1 › Domain 4 – Security Tools'],
-        ['ItsyBitsy (ELK Challenge)','SAL1 › Domain 4 – Security Tools'],
-        ['Investigating with Splunk ⭐','SAL1 › Domain 4 – Security Tools'],
-      ]},
-    ]},
+{week:3,dn:'SUN',dd:'May 18',college:[
+  {sec:'VTU · Cloud Computing (M5) + PYQs',tasks:[
+    ['Google App Engine, Amazon AWS programming','BCS601 › Module 5'],
+    ['Past question papers – Cloud Computing','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S3 + S4 Frameworks',tasks:[
+    ['Introduction to SOAR','SOC L1 › S3'],
+    ['Pyramid of Pain','SOC L1 › S4'],
+    ['Cyber Kill Chain','SOC L1 › S4'],
+    ['Unified Kill Chain','SOC L1 › S4'],
+  ]},
+]},
 
-  { week:3, dn:'FRI', dd:'May 1', college:[
-      {sec:'Cloud Computing – Security', tasks:[
-        ['Cloud Data Encryption, OS & VM Security','BCS601 › Module 4'],
-        ['XOAR, Trusted Hypervisor, Mobile & Cloud Security','BCS601 › Module 4'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D4 – Splunk & SOAR', tasks:[
-        ['Benign (Splunk Challenge) ⭐','SAL1 › Domain 4 – Security Tools'],
-        ['Secret Recipe (Splunk Challenge) ⭐','SAL1 › Domain 4 – Security Tools'],
-        ['Introduction to SOAR','SAL1 › Domain 4 – Security Tools'],
-      ]},
-    ]},
+{week:3,dn:'MON',dd:'May 19',college:[
+  {sec:'VTU · Machine Learning (M5) + PYQs',tasks:[
+    ['Clustering – K-Means, Hierarchical, Density-based','BCS602 › Module 5'],
+    ['Past question papers – Machine Learning','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S4 Frameworks cont.',tasks:[
+    ['MITRE ATT&CK (MITRE room)','SOC L1 › S4'],
+    ['Summit (Challenge)','SOC L1 › S4'],
+    ['Eviction (Challenge)','SOC L1 › S4'],
+  ]},
+]},
 
-  { week:3, dn:'SAT', dd:'May 2', college:[
-      {sec:'Advanced Java – Servlets & JSP (Weekend Catch-up)', tasks:[
-        ['Servlets – lifecycle, Tomcat, Servlet API','BCS613D › Module 4'],
-        ['JSP – tags, variables, control statements','BCS613D › Module 4'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D4 – Threat Intel Platforms', tasks:[
-        ['Intro to Cyber Threat Intel','SAL1 › Domain 4 – Security Tools'],
-        ['File and Hash Threat Intel','SAL1 › Domain 4 – Security Tools'],
-        ['IP and Domain Threat Intel','SAL1 › Domain 4 – Security Tools'],
-      ]},
-    ]},
+{week:3,dn:'TUE',dd:'May 20',college:[
+  {sec:'VTU · Mobile App Dev (M5) + PYQs',tasks:[
+    ['SQLite – creation, connection, transactions','BIS654C › Module 4'],
+    ['Past question papers – Mobile App Dev','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S5 Phishing Analysis',tasks:[
+    ['Phishing Analysis Fundamentals','SOC L1 › S5'],
+    ['Phishing Emails in Action','SOC L1 › S5'],
+    ['Phishing Analysis Tools','SOC L1 › S5'],
+  ]},
+]},
 
-  { week:3, dn:'SUN', dd:'May 3', college:[
-      {sec:'Cloud Computing – Programming (Weekend Catch-up)', tasks:[
-        ['Google App Engine programming support','BCS601 › Module 5'],
-        ['Amazon AWS & Microsoft cloud programming','BCS601 › Module 5'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D4 – Network & Web Protection', tasks:[
-        ['Network Security Essentials','SAL1 › Domain 4 – Security Tools'],
-        ['IDS Fundamentals','SAL1 › Domain 4 – Security Tools'],
-        ['Snort','SAL1 › Domain 4 – Security Tools'],
-      ]},
-    ]},
+// ══ WEEK 4 — SOC L1 Core + VTU Pre-Exam Prep (May 21–26) ══
+{week:4,dn:'WED',dd:'May 21',college:[
+  {sec:'VTU · Advanced Java – Full Revision + PYQs',tasks:[
+    ['Adv Java – Servlets, JDBC practice Qs','VTU Prep'],
+    ['Answer writing – 3 AJ questions from PYQs','BCS613D › Practice'],
+  ]}],sal:[
+  {sec:'SOC L1 · S5 Phishing cont. + SOC Sim',tasks:[
+    ['Phishing Prevention','SOC L1 › S5'],
+    ['The Greenholt Phish (Challenge)','SOC L1 › S5'],
+    ['Snapped Phish-ing Line (Challenge)','SOC L1 › S5'],
+    ['SOC Sim: Phishing Unfolding','SOC L1 › SOC Simulator'],
+  ]},
+]},
 
-  // ══════════════════════════════════════
-  // WEEK 4 — Push Hard
-  // May 4–10
-  // ══════════════════════════════════════
-  { week:4, dn:'MON', dd:'May 4', college:[
-      {sec:'⚠️ Internal Test 2 Prep', tasks:[
-        ['ML – Modules 3,4,5 revision','BCS602 – Test 2'],
-        ['Cloud Computing – Modules 3,4,5 revision','BCS601 – Test 2'],
-        ['Advanced Java – Modules 3,4,5 revision','BCS613D – Test 2'],
-        ['Mobile App Dev – Modules 3,4,5 revision','BIS654C – Test 2'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D5 – SOC Workflows', tasks:[
-        ['Junior Security Analyst Intro','SAL1 › Domain 5 – SOC Workflows'],
-        ['SOC Role in Blue Team','SAL1 › Domain 5 – SOC Workflows'],
-        ['SOC L1 Alert Triage','SAL1 › Domain 5 – SOC Workflows'],
-      ]},
-    ]},
+{week:4,dn:'THU',dd:'May 22',college:[
+  {sec:'VTU · Cloud Computing – Full Revision',tasks:[
+    ['Cloud – Modules 1-5 key topics revision','VTU Prep'],
+    ['Answer writing – 3 CC questions from PYQs','BCS601 › Practice'],
+  ]}],sal:[
+  {sec:'SOC L1 · S6 Network Traffic Analysis',tasks:[
+    ['Network Traffic Basics','SOC L1 › S6'],
+    ['Wireshark: The Basics','SOC L1 › S6'],
+    ['Wireshark: Packet Operations','SOC L1 › S6'],
+  ]},
+]},
 
-  { week:4, dn:'TUE', dd:'May 5', college:[
-      {sec:'Internal Test 2 – Final Prep', tasks:[
-        ['Practice Qs – all subjects Modules 3–5','Self Study'],
-        ['Focus on ML algorithms & Cloud Security','Self Study'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D5 – SOC Internals', tasks:[
-        ['SOC L1 Alert Reporting','SAL1 › Domain 5 – SOC Workflows'],
-        ['SOC Workbooks and Lookups','SAL1 › Domain 5 – SOC Workflows'],
-        ['SOC Metrics and Objectives','SAL1 › Domain 5 – SOC Workflows'],
-      ]},
-    ]},
+{week:4,dn:'FRI',dd:'May 23',college:[
+  {sec:'VTU · Cloud Computing – PYQ Answer Writing',tasks:[
+    ['CC – 5 important answers written practice','BCS601 › Practice'],
+    ['Diagrams: Cloud architecture, SaaS/PaaS/IaaS stack','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S6 + S7 Network Security',tasks:[
+    ['Wireshark: Traffic Analysis','SOC L1 › S6'],
+    ['NetworkMiner','SOC L1 › S6'],
+    ['Network Security Essentials','SOC L1 › S7'],
+    ['Network Discovery Detection','SOC L1 › S7'],
+  ]},
+]},
 
-  { week:4, dn:'WED', dd:'May 6', college:[
-      {sec:'ML – Bayesian & Neural Nets', tasks:[
-        ['Bayesian Learning – Bayes Theorem, Naive Bayes','BCS602 › Module 4'],
-        ['Artificial Neural Networks – Perceptron, types','BCS602 › Module 4'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 D5 – Alert Triage Practice', tasks:[
-        ['Alert Triage with Splunk','SAL1 › Domain 5 – SOC Workflows'],
-        ['Alert Triage with Elastic','SAL1 › Domain 5 – SOC Workflows'],
-        ['Benign – Full Triage Practice ⭐','SAL1 › Domain 5 – SOC Workflows'],
-      ]},
-    ]},
+{week:4,dn:'SAT',dd:'May 24',college:[
+  {sec:'VTU · Cloud – Final Revision Day',tasks:[
+    ['Cloud M1-5 one-shot revision pass','BCS601 › Revision'],
+    ['Key definitions, architecture diagrams recap','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S7 Network Security cont.',tasks:[
+    ['Data Exfiltration Detection','SOC L1 › S7'],
+    ['Man-in-the-Middle Detection','SOC L1 › S7'],
+    ['IDS Fundamentals','SOC L1 › S7'],
+    ['Snort','SOC L1 › S7'],
+  ]},
+]},
 
-  { week:4, dn:'THU', dd:'May 7', college:[
-      {sec:'Cloud Computing – Programming', tasks:[
-        ['Cloud Security Defense Strategies','BCS601 › Module 4'],
-        ['Cloud Programming – Grid platforms, Parallel Computing','BCS601 › Module 5'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – SOC Simulator Practice ⭐', tasks:[
-        ['SOC Simulator – Introduction to Phishing','SAL1 › SOC Simulator'],
-        ['SOC Simulator – Phishing Unfolding','SAL1 › SOC Simulator'],
-      ]},
-    ]},
+{week:4,dn:'SUN',dd:'May 25',college:[
+  {sec:'VTU · Cloud – Last Day Before Exam 🔥',tasks:[
+    ['Cloud PYQs – last 5 years important Qs only','VTU Prep'],
+    ['Prepare 3-4 model answers, sleep early tonight','BCS601 › Practice'],
+  ]}],sal:[
+  {sec:'SOC L1 · S8 Web Security Monitoring + SOC Sim',tasks:[
+    ['Web Security Essentials','SOC L1 › S8'],
+    ['Detecting Web Attacks','SOC L1 › S8'],
+    ['Detecting Web Shells','SOC L1 › S8'],
+    ['Detecting Web DDoS','SOC L1 › S8'],
+    ['SOC Sim: Upload and Conquer','SOC L1 › SOC Simulator'],
+  ]},
+]},
 
-  { week:4, dn:'FRI', dd:'May 8', college:[
-      {sec:'ML – Clustering & RL', tasks:[
-        ['Clustering – Hierarchical, K-Means, Density-based','BCS602 › Module 5'],
-        ['Reinforcement Learning – MDP, Q-Learning, SARSA','BCS602 › Module 5'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – SOC Simulator cont. ⭐', tasks:[
-        ['SOC Simulator – Upload and Conquer','SAL1 › SOC Simulator'],
-        ['SOC Simulator – Any additional scenarios','SAL1 › SOC Simulator'],
-        ['Review & improve report writing skills','SAL1 › Report Writing'],
-      ]},
-    ]},
+{week:4,dn:'TUE',dd:'May 26',vtuexam:true,college:[
+  {sec:'🔴 VTU EXAM 1 – Cloud Computing (BCS601) · 2–5pm',tasks:[
+    ['Cloud Computing exam – all the best! ☁️💪','BCS601 Exam'],
+    ['After exam: quick ML notes review (don\'t overdo)','BCS602 › Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S9 Windows Security (morning, before exam)',tasks:[
+    ['Windows Logging for SOC','SOC L1 › S9'],
+    ['Windows Threat Detection 1','SOC L1 › S9'],
+  ]},
+]},
 
-  { week:4, dn:'SAT', dd:'May 9', college:[
-      {sec:'Mobile App Dev – SQLite (Weekend Catch-up)', tasks:[
-        ['SQLite – creation, connection, transactions','BIS654C › Module 4'],
-        ['SMS Telephony & Location Based Services','BIS654C › Module 4'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – Capstone Challenges', tasks:[
-        ['Tempest (Capstone)','SAL1 › Capstone'],
-        ['Boogeyman 1 (Capstone)','SAL1 › Capstone'],
-      ]},
-    ]},
+// ══ WEEK 5 — ML Revision + SOC L1 S9-14 (May 27 – Jun 2) ══
+{week:5,dn:'WED',dd:'May 27',college:[
+  {sec:'VTU · Machine Learning – Revision Day 1',tasks:[
+    ['ML algorithms quick reference – KNN, Decision Tree, SVM','BCS602 › Revision'],
+    ['Regression, Bayesian – key formulas','BCS602 › Module 3-4'],
+  ]}],sal:[
+  {sec:'SOC L1 · S9 Windows Security cont.',tasks:[
+    ['Windows Threat Detection 2','SOC L1 › S9'],
+    ['Windows Threat Detection 3','SOC L1 › S9'],
+    ['SOC Sim: BlackCat','SOC L1 › SOC Simulator'],
+  ]},
+]},
 
-  { week:4, dn:'SUN', dd:'May 10', college:[
-      {sec:'Advanced Java – JDBC (Weekend Catch-up)', tasks:[
-        ['JDBC – concept, driver types, packages','BCS613D › Module 5'],
-        ['Database connection, Statement, ResultSet, Transactions','BCS613D › Module 5'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – Capstone Challenges cont.', tasks:[
-        ['Boogeyman 2 (Capstone)','SAL1 › Capstone'],
-        ['Boogeyman 3 (Capstone)','SAL1 › Capstone'],
-        ['Hidden Hooks (Capstone)','SAL1 › Capstone'],
-      ]},
-    ]},
+{week:5,dn:'THU',dd:'May 28',college:[
+  {sec:'VTU · Machine Learning – Revision Day 2',tasks:[
+    ['Neural Networks, Deep Learning intro – Module 4','BCS602 › Module 4'],
+    ['ML PYQs – last 5 years important questions','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S10 Linux Security',tasks:[
+    ['Linux Logging for SOC','SOC L1 › S10'],
+    ['Linux Threat Detection 1','SOC L1 › S10'],
+    ['Linux Threat Detection 2','SOC L1 › S10'],
+  ]},
+]},
 
-  // ══════════════════════════════════════
-  // WEEK 5 — Final Push + Exam
-  // May 11–17
-  // ══════════════════════════════════════
-  { week:5, dn:'MON', dd:'May 11', college:[
-      {sec:'📝 Lab Records', tasks:[
-        ['Complete ML Lab records (exps 1–5)','BCSL606 › Lab Record'],
-        ['DevOps – Maven & Gradle lab exercises','BCSL657D › Lab'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – Full Revision D1 & D2', tasks:[
-        ['Revise: Networking, OS, Crypto, Cloud basics','SAL1 › Final Revision'],
-        ['Revise: Kill Chain, MITRE ATT&CK, Pyramid of Pain','SAL1 › Final Revision'],
-      ]},
-    ]},
+{week:5,dn:'FRI',dd:'May 29',college:[
+  {sec:'VTU · Machine Learning – PYQ Answer Writing',tasks:[
+    ['ML – 5 important answers written practice','BCS602 › Practice'],
+    ['Diagrams: Decision tree, Neural network, K-Means','VTU Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S10 + S11 Malware',tasks:[
+    ['Linux Threat Detection 3','SOC L1 › S10'],
+    ['Malware Classification','SOC L1 › S11'],
+    ['Intro to Malware Analysis','SOC L1 › S11'],
+  ]},
+]},
 
-  { week:5, dn:'TUE', dd:'May 12', college:[
-      {sec:'VTU Prep – Cloud', tasks:[
-        ['Cloud Computing – full revision Modules 1–3','VTU Prep'],
-        ['Past question papers – Cloud Computing','VTU Prep'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – Full Revision D3 & D4', tasks:[
-        ['Revise: Phishing, Network attacks, Malware, LOLBAS','SAL1 › Final Revision'],
-        ['Revise: SIEM (Splunk/ELK), EDR, SOAR, Threat Intel','SAL1 › Final Revision'],
-      ]},
-    ]},
+{week:5,dn:'SAT',dd:'May 30',college:[
+  {sec:'VTU · Machine Learning – Final Revision',tasks:[
+    ['ML M1-5 one-shot revision pass','BCS602 › Revision'],
+    ['Clustering, Reinforcement Learning – Module 5 key topics','BCS602 › Module 5'],
+  ]}],sal:[
+  {sec:'SOC L1 · S11 + S12 Threat Intel',tasks:[
+    ['Living Off the Land Attacks','SOC L1 › S11'],
+    ['Shadow Trace','SOC L1 › S11'],
+    ['Intro to Cyber Threat Intel','SOC L1 › S12'],
+    ['File and Hash Threat Intel','SOC L1 › S12'],
+  ]},
+]},
 
-  { week:5, dn:'WED', dd:'May 13', college:[
-      {sec:'VTU Prep – ML', tasks:[
-        ['ML – algorithms quick reference sheet','VTU Prep'],
-        ['Past question papers – Machine Learning','VTU Prep'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – Full Revision D5 + Mock', tasks:[
-        ['Revise: SOC workflows, alert triage, escalation, metrics','SAL1 › Final Revision'],
-        ['Full Mock Exam Attempt ⭐','SAL1 › Mock Exam'],
-        ['Review all wrong answers & weak topics','SAL1 › Mock Exam'],
-      ]},
-    ]},
+{week:5,dn:'SUN',dd:'May 31',college:[
+  {sec:'VTU · ML – Last Day Before Exam 🔥',tasks:[
+    ['ML PYQs – model answers only','VTU Prep'],
+    ['Sleep early – ML exam tomorrow 2pm','BCS602 › Practice'],
+  ]}],sal:[
+  {sec:'SOC L1 · S12 Threat Intel cont.',tasks:[
+    ['IP and Domain Threat Intel','SOC L1 › S12'],
+    ['Invite Only','SOC L1 › S12'],
+  ]},
+  {sec:'SOC L1 · S13 SIEM Triage ⭐',tasks:[
+    ['Log Analysis with SIEM','SOC L1 › S13'],
+    ['Alert Triage with Splunk','SOC L1 › S13'],
+  ]},
+]},
 
-  { week:5, dn:'THU', dd:'May 14', college:[
-      {sec:'VTU Prep – Advanced Java', tasks:[
-        ['Advanced Java – Servlets, JDBC practice Qs','VTU Prep'],
-        ['Past question papers – Advanced Java','VTU Prep'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – SOC Sim Final Run ⭐', tasks:[
-        ['SOC Simulator – full timed run (treat as real exam)','SAL1 › SOC Simulator'],
-        ['Perfect your report template in Notepad','SAL1 › Report Writing'],
-      ]},
-    ]},
+{week:5,dn:'MON',dd:'Jun 1',vtuexam:true,college:[
+  {sec:'🔴 VTU EXAM 2 – Machine Learning (BCS602) · 2–5pm',tasks:[
+    ['Machine Learning exam – all the best! 🤖💪','BCS602 Exam'],
+    ['After exam: rest well – SAL1 EXAM TOMORROW MORNING','SAL1 Prep'],
+  ]}],sal:[
+  {sec:'SOC L1 · S13 Final Rooms (morning, before exam)',tasks:[
+    ['Alert Triage with Elastic','SOC L1 › S13'],
+    ['ItsyBitsy (ELK Challenge)','SOC L1 › S13'],
+    ['Benign (Splunk Challenge)','SOC L1 › S13'],
+  ]},
+]},
 
-  { week:5, dn:'FRI', dd:'May 15', college:[
-      {sec:'VTU Prep – Mobile App', tasks:[
-        ['Mobile App Dev – Android lifecycle & SQLite Qs','VTU Prep'],
-        ['Past question papers – Mobile App Dev','VTU Prep'],
-      ]},
-    ], sal:[
-      {sec:'SAL1 – Pre-Exam Day', tasks:[
-        ['Light flashcard review – key terms only','SAL1 › Final Revision'],
-        ['Review report template one last time','SAL1 › Report Writing'],
-        ['Rest early – big day tomorrow! 😴','Rest Day'],
-      ]},
-    ]},
+{week:5,dn:'🏆',dd:'Jun 2 – SAL1 EXAM DAY',salExam:true,college:[
+  {sec:'🎯 Morning: SAL1 EXAM (before 12pm!) then rest',tasks:[
+    ['Complete Capstone – Tempest','SOC L1 › S14'],
+    ['Complete Capstone – Boogeyman 1','SOC L1 › S14'],
+    ['Complete Capstone – Boogeyman 2','SOC L1 › S14'],
+    ['Complete Capstone – Boogeyman 3','SOC L1 › S14'],
+    ['SOC Sim: Hidden Hooks','SOC L1 › SOC Simulator'],
+    ['SOC Sim: Open Door','SOC L1 › SOC Simulator'],
+    ['🏆 SAL1 CERTIFICATION EXAM – TAKE IT NOW!','⚡ Voucher expires today – go go go!'],
+  ]}],sal:[
+  {sec:'📚 Afternoon: Start AJ revision',tasks:[
+    ['Advanced Java – Servlets & JSP revision start','BCS613D › Revision'],
+    ['Rest early – AJ exam in 2 days','BCS613D › Prep'],
+  ]},
+]},
 
-  { week:5, dn:'SAT', dd:'May 16', college:[
-      {sec:'Rest – Pre Exam', tasks:[
-        ['Light notes review only','Self Study'],
-        ['Sleep early – SAL1 exam tomorrow! 😴','Rest Day'],
-      ]},
-    ], sal:[
-      {sec:'Pre-Exam Prep', tasks:[
-        ['Flashcard review – key terms, tools & frameworks','Final Revision'],
-        ['Rest early – you are READY! 🔥','Rest Day'],
-      ]},
-    ]},
+// ══ WEEK 6 — Post SAL1 · VTU Exams 3-5 (Jun 3–12) ══
+{week:6,dn:'WED',dd:'Jun 3',college:[
+  {sec:'VTU · Advanced Java – Revision Day 1',tasks:[
+    ['Adv Java – Swing, JDBC, Servlets full revision','BCS613D › Revision'],
+    ['AJ PYQs – important questions only','VTU Prep'],
+  ]}],sal:[
+  {sec:'🎉 SAL1 done! Take the day light',tasks:[
+    ['Review SAL1 result / certificate download','Post-exam'],
+  ]},
+]},
 
-  { week:5, dn:'🎯 SUN', dd:'May 17 – EXAM', exam:true, college:[
-      {sec:'After SAL1 Exam', tasks:[
-        ['You did it! Celebrate 🎉','You earned it'],
-        ['Start VTU prep from tomorrow','VTU'],
-      ]},
-    ], sal:[
-      {sec:'🏆 SAL1 EXAM DAY', tasks:[
-        ['SAL1 Certification Exam – TryHackMe','EXAM – You\'ve got this!!! 💪'],
-        ['🎉 Celebrate your achievement!','You earned it!'],
-      ]},
-    ]},
+{week:6,dn:'THU',dd:'Jun 4',vtuexam:true,college:[
+  {sec:'🔴 VTU EXAM 3 – Advanced Java (BCS613D) · 2–5pm',tasks:[
+    ['Advanced Java exam – all the best! ☕💪','BCS613D Exam'],
+    ['After exam: quick MAD notes review','BIS654C › Prep'],
+  ]}],sal:[
+  {sec:'Post-SAL1 · Rest day',tasks:[
+    ['Free evening – you deserve it 🎉','Rest'],
+  ]},
+]},
+
+{week:6,dn:'FRI',dd:'Jun 5',college:[
+  {sec:'VTU · Mobile App Dev – Revision Day 1',tasks:[
+    ['MAD – Activity lifecycle, Intents, Fragments','BIS654C › Module 3'],
+    ['SQLite, Content Providers, Services revision','BIS654C › Module 4'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Light reading or rest','Free'],
+  ]},
+]},
+
+{week:6,dn:'SAT',dd:'Jun 6',college:[
+  {sec:'VTU · Mobile App Dev – Revision Day 2',tasks:[
+    ['MAD PYQs – last 5 years important questions','VTU Prep'],
+    ['MAD diagrams – Android architecture, Activity stack','BIS654C › Revision'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Light reading or rest','Free'],
+  ]},
+]},
+
+{week:6,dn:'SUN',dd:'Jun 7',college:[
+  {sec:'VTU · Mobile App Dev – Revision Day 3',tasks:[
+    ['MAD – 5 model answers written practice','BIS654C › Practice'],
+    ['Sensors, GPS, Notifications revision','BIS654C › Module 5'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Light reading or rest','Free'],
+  ]},
+]},
+
+{week:6,dn:'MON',dd:'Jun 8',college:[
+  {sec:'VTU · MAD – Last Day Before Exam 🔥',tasks:[
+    ['MAD PYQs – model answers final pass','VTU Prep'],
+    ['Sleep early – MAD exam tomorrow 2pm','BIS654C › Practice'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Rest and recharge','Free'],
+  ]},
+]},
+
+{week:6,dn:'TUE',dd:'Jun 9',vtuexam:true,college:[
+  {sec:'🔴 VTU EXAM 4 – Mobile App Dev (BIS654C) · 2–5pm',tasks:[
+    ['Mobile App Dev exam – all the best! 📱💪','BIS654C Exam'],
+    ['After exam: start 5th subject notes review','B**657 › Prep'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Rest evening','Free'],
+  ]},
+]},
+
+{week:6,dn:'WED',dd:'Jun 10',college:[
+  {sec:'VTU · 5th Subject (B**657) – Revision Day 1',tasks:[
+    ['5th subject M1-3 important topics revision','B**657 › Revision'],
+    ['PYQs – last 5 years important questions','VTU Prep'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Rest and recharge','Free'],
+  ]},
+]},
+
+{week:6,dn:'THU',dd:'Jun 11',college:[
+  {sec:'VTU · 5th Subject – Last Day Before Exam 🔥',tasks:[
+    ['5th subject – 5 model answers written practice','B**657 › Practice'],
+    ['Key diagrams and formulas final pass','VTU Prep'],
+  ]}],sal:[
+  {sec:'Free / buffer day',tasks:[
+    ['Rest early tonight – final exam tomorrow','Free'],
+  ]},
+]},
+
+{week:6,dn:'🎓',dd:'Jun 12 – FINAL EXAM',vtuexam:true,college:[
+  {sec:'🔴 VTU EXAM 5 – Final Paper (B**657) · 2–5pm',tasks:[
+    ['Final exam – give it everything you\'ve got! 🎓💪','B**657 Exam'],
+    ['🎉 VTU 6th Sem DONE! Celebrate tonight!','You made it!'],
+  ]}],sal:[
+  {sec:'You\'re completely done 🎉',tasks:[
+    ['SAL1 certified ✅ + VTU done ✅ = Legend status','🏆'],
+  ]},
+]},
 ];
 
 const WEEK_META = [
-  {num:1, cls:'w1', title:'Week 1 — Soft Reset + Quiz Prep',          date:'Apr 13–19'},
-  {num:2, cls:'w2', title:'Week 2 — Building Momentum',               date:'Apr 20–26'},
-  {num:3, cls:'w3', title:'Week 3 — Full Pace',                       date:'Apr 27 – May 3'},
-  {num:4, cls:'w4', title:'Week 4 — Push Hard',                       date:'May 4–10'},
-  {num:5, cls:'w5', title:'Week 5 — Final Push + SAL1 Exam',          date:'May 11–17'},
+  {num:1,cls:'w1',title:'Week 1 — CS101 Phase 1',       date:'Apr 30 – May 6'},
+  {num:2,cls:'w2',title:'Week 2 — CS101 Defensive + Internals',date:'May 7–13'},
+  {num:3,cls:'w3',title:'Week 3 — SOC L1 Foundation + Lab Days',date:'May 14–20'},
+  {num:4,cls:'w4',title:'Week 4 — SOC L1 Core + Cloud Exam Prep', date:'May 21–26'},
+  {num:5,cls:'w5',title:'Week 5 — SOC L1 Finish + SAL1 Exam Jun 2',date:'May 27–Jun 2'},
+  {num:6,cls:'w6',title:'Week 6 — VTU Exams 3–5 (Post SAL1)',date:'Jun 3–12'},
 ];
 
-const SUBJECTS = [
-  {name:'Advanced Java',   code:'BCS613D'},
-  {name:'Machine Learning',code:'BCS602'},
+const SUBJECTS=[
   {name:'Cloud Computing', code:'BCS601'},
+  {name:'Machine Learning',code:'BCS602'},
+  {name:'Advanced Java',   code:'BCS613D'},
   {name:'Mobile App Dev',  code:'BIS654C'},
 ];
 
-const SAL_MODULES = [
-  'D1: Fundamental Knowledge',
-  'D2: Cybersecurity Frameworks',
-  'D3: Common Malicious Behaviour',
-  'D4: Security Tools of the Trade',
-  'D5: SOC Workflows & Activities',
-  'SOC Simulator',
-  'Capstone Challenges',
+const SAL_PHASES=[
+  {name:'Phase 1 · CS101 (Defensive)', tag:'CS101 ›'},
+  {name:'Phase 2 · SOC L1 S1–8',      tag:'SOC L1 › S'},
+  {name:'Phase 3 · SOC L1 S9–14',     tag:'SOC L1 › S1'},
+  {name:'SOC Simulator Runs',          tag:'SOC Simulator'},
 ];
 
-// ─────────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────────
-const KEY = 'masterplan_v2';
-let state = {};
+const KEY='masterplan_v4';
+let state={};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}updateProgress();}
+function load(){try{const s=localStorage.getItem(KEY);if(s)state=JSON.parse(s);}catch(e){}}
+function taskId(w,di,sec,ti){return `w${w}_d${di}_${sec}_t${ti}`;}
+function toggleTask(id,el){state[id]=!state[id];el.classList.toggle('done',state[id]);save();updateBadges();}
 
-function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
-  updateProgress();
-}
-function load() {
-  try { const s = localStorage.getItem(KEY); if(s) state = JSON.parse(s); } catch(e){}
-}
-function taskId(weekNum, dayIdx, section, taskIdx) {
-  return `w${weekNum}_d${dayIdx}_${section}_t${taskIdx}`;
-}
-function toggleTask(id, el) {
-  state[id] = !state[id];
-  if(state[id]) el.classList.add('done');
-  else el.classList.remove('done');
-  save();
-  updateBadges();
-}
-
-// ─────────────────────────────────────────────
-// RENDER
-// ─────────────────────────────────────────────
-function buildTaskItem(id, name, tag, type) {
-  const div = document.createElement('div');
-  div.className = `task-item ${type}-task` + (state[id] ? ' done' : '');
-  div.onclick = () => toggleTask(id, div);
-  div.innerHTML = `<div class="task-cb">✓</div><div class="task-text"><span class="task-name">${name}</span><span class="task-tag">${tag}</span></div>`;
+function buildTaskItem(id,name,tag,type){
+  const div=document.createElement('div');
+  div.className=`task-item ${type}-task`+(state[id]?' done':'');
+  div.onclick=()=>toggleTask(id,div);
+  div.innerHTML=`<div class="task-cb">✓</div><div class="task-text"><span class="task-name">${name}</span><span class="task-tag">${tag}</span></div>`;
   return div;
 }
 
-function buildDayContent(day, dayIdx) {
-  const frag = document.createDocumentFragment();
-  day.college.forEach((sec, si) => {
-    const lbl = document.createElement('div');
-    const isQuiz = sec.sec.includes('Quiz');
-    lbl.className = `sec-label ${isQuiz ? 'quiz-lbl' : 'clg-lbl'}`;
-    lbl.textContent = (isQuiz ? '🟣 ' : '🟠 ') + sec.sec;
+function buildDayContent(day,dayIdx){
+  const frag=document.createDocumentFragment();
+  const allSecs=[
+    ...day.college.map(s=>({...s,type:'clg'})),
+    ...day.sal.map(s=>({...s,type:'sal'})),
+  ];
+  allSecs.forEach((sec,si)=>{
+    const lbl=document.createElement('div');
+    lbl.className=`sec-label ${sec.type}-lbl`;
+    lbl.textContent=sec.sec;
     frag.appendChild(lbl);
-    const list = document.createElement('div');
-    list.className = 'task-list';
-    sec.tasks.forEach((t, ti) => {
-      const id = taskId(day.week, dayIdx, `c${si}`, ti);
-      list.appendChild(buildTaskItem(id, t[0], t[1], isQuiz ? 'quiz' : 'clg'));
-    });
-    frag.appendChild(list);
-  });
-  day.sal.forEach((sec, si) => {
-    const lbl = document.createElement('div');
-    lbl.className = 'sec-label sal-lbl';
-    lbl.textContent = '🔵 ' + sec.sec;
-    frag.appendChild(lbl);
-    const list = document.createElement('div');
-    list.className = 'task-list';
-    sec.tasks.forEach((t, ti) => {
-      const id = taskId(day.week, dayIdx, `s${si}`, ti);
-      list.appendChild(buildTaskItem(id, t[0], t[1], 'sal'));
+    const list=document.createElement('div');
+    list.className='task-list';
+    sec.tasks.forEach((t,ti)=>{
+      const id=taskId(day.week,dayIdx,`${sec.type}${si}`,ti);
+      list.appendChild(buildTaskItem(id,t[0],t[1],sec.type));
     });
     frag.appendChild(list);
   });
   return frag;
 }
 
-function buildPlan(container) {
-  WEEK_META.forEach(wm => {
-    const weekDays = DAYS.filter(d => d.week === wm.num);
-    const wb = document.createElement('div');
-    wb.className = `week-block ${wm.cls}`;
-    const wh = document.createElement('div');
-    wh.className = 'week-header';
-    wh.innerHTML = `<h2>${wm.title}</h2><span class="wdate">${wm.date}</span><span class="week-pct" id="wpct${wm.num}">0%</span><span class="wchev">▼</span>`;
-    const body = document.createElement('div');
-    body.className = 'week-body';
-    wh.onclick = () => {
-      wh.classList.toggle('col');
-      body.style.display = body.style.display === 'none' ? '' : 'none';
-    };
-    weekDays.forEach((day) => {
-      const globalIdx = DAYS.indexOf(day);
-      const dr = document.createElement('div');
-      dr.className = 'day-row';
-      const isToday = isCurrentDay(day.dd);
-      const dh = document.createElement('div');
-      dh.className = 'day-header' + (day.exam ? ' exam-row' : '') + (day.quiz ? ' quiz-row' : '') + (isToday ? ' today-row' : '');
-      const nameColor = day.exam ? 'color:var(--exam)' : day.quiz ? 'color:var(--quiz)' : '';
-      dh.innerHTML = `<span class="day-name" style="${nameColor}">${day.dn}</span><span class="day-date">${day.dd}${isToday?' 👈':''}</span><span class="day-badge badge-todo" id="dbadge${globalIdx}">To Do</span><span class="dchev">▼</span>`;
-      const dc = document.createElement('div');
-      dc.className = 'day-content';
-      dc.style.display = isToday ? '' : 'none';
-      if(isToday) dh.classList.add('col');
-      dc.appendChild(buildDayContent(day, globalIdx));
-      dh.onclick = () => {
-        const hidden = dc.style.display === 'none';
-        dc.style.display = hidden ? '' : 'none';
-        dh.classList.toggle('col', !hidden);
-      };
-      dr.appendChild(dh); dr.appendChild(dc);
-      body.appendChild(dr);
+function isToday(day){
+  const t=new Date();
+  const months={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5};
+  const dd=day.dd.replace(/[^a-zA-Z0-9 ]/g,'').trim().split(' ');
+  if(dd.length<2)return false;
+  const mon=months[dd[0]];const d=parseInt(dd[1]);
+  if(isNaN(d)||mon===undefined)return false;
+  return t.getDate()===d&&t.getMonth()===mon&&t.getFullYear()===2026;
+}
+
+function buildPlan(container){
+  WEEK_META.forEach(wm=>{
+    const wb=document.createElement('div');wb.className=`week-block ${wm.cls}`;
+    const wh=document.createElement('div');wh.className='week-header';
+    wh.innerHTML=`<h2>${wm.title}</h2><span class="week-pct" id="wpct${wm.num}">0%</span><span class="wdate">${wm.date}</span><span class="wchev">▼</span>`;
+    wh.onclick=()=>{wh.classList.toggle('col');wbody.style.display=wh.classList.contains('col')?'none':'block';};
+    wb.appendChild(wh);
+    const wbody=document.createElement('div');wbody.className='week-body';
+    DAYS.filter(d=>d.week===wm.num).forEach(day=>{
+      const di=DAYS.indexOf(day);
+      const dr=document.createElement('div');
+      let rowCls='day-row';
+      if(day.salExam)rowCls+=' sal-exam-row';
+      else if(day.exam2)rowCls+=' exam-row';
+      else if(day.lab)rowCls+=' lab-row';
+      else if(day.vtuexam)rowCls+=' vtu-row';
+      dr.className=rowCls;
+      const dh=document.createElement('div');
+      dh.className='day-header'+(isToday(day)?' today-row':'');
+      dh.innerHTML=`<span class="day-name">${day.dn}</span><span class="day-date">${day.dd}</span><span class="day-badge badge-todo" id="dbadge${di}">To Do</span><span class="dchev">▼</span>`;
+      const dc=document.createElement('div');dc.className='day-content';
+      dc.style.display=isToday(day)?'block':'none';
+      if(!isToday(day))dh.classList.add('col');
+      dh.onclick=()=>{dh.classList.toggle('col');dc.style.display=dh.classList.contains('col')?'none':'block';};
+      dc.appendChild(buildDayContent(day,di));
+      dr.appendChild(dh);dr.appendChild(dc);
+      wbody.appendChild(dr);
     });
-    wb.appendChild(wh); wb.appendChild(body);
-    container.appendChild(wb);
+    wb.appendChild(wbody);container.appendChild(wb);
   });
 }
 
-function isCurrentDay(dd) {
-  const now = new Date();
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const m = months[now.getMonth()];
-  const d = now.getDate();
-  // Must match "Mon DD" exactly — e.g. "Apr 13", not just "13"
-  return dd.startsWith(m + ' ' + d) || dd === (m + ' ' + d);
-}
-
-// ─────────────────────────────────────────────
-// TODAY VIEW
-// ─────────────────────────────────────────────
-function buildToday() {
-  const now = new Date();
-  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  document.getElementById('todayDate').textContent =
-    `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
-
-  const planDay = DAYS.find(d => isCurrentDay(d.dd));
-  const cont = document.getElementById('todayWeekContainer');
-
-  if (planDay) {
-    const c0 = planDay.college[0];
-    document.getElementById('todayCollegeTask').textContent = '📚 ' + c0.sec;
-    document.getElementById('todayCollegeSub').textContent = c0.tasks.map(t=>t[0]).slice(0,2).join(' · ');
-    const s0 = planDay.sal[0];
-    document.getElementById('todaySalTask').textContent = '🛡️ ' + s0.sec;
-    document.getElementById('todaySalSub').textContent = s0.tasks.map(t=>t[0]).slice(0,2).join(' · ');
-
-    const dc = document.createElement('div');
-    dc.style.cssText = 'background:var(--bg2);border-radius:14px;border:1px solid var(--border2);overflow:hidden;';
-    const lbl = document.createElement('div');
-    lbl.style.cssText = 'padding:10px 12px;font-family:"Fraunces",serif;font-size:.85rem;font-weight:700;border-bottom:1px solid var(--border);';
-    lbl.textContent = "📋 Today's Tasks";
-    dc.appendChild(lbl);
-    dc.appendChild(buildDayContent(planDay, DAYS.indexOf(planDay)));
-    cont.appendChild(dc);
+function buildToday(){
+  const t=new Date();
+  const dayNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('todayDate').textContent=`${dayNames[t.getDay()]}, ${monthNames[t.getMonth()]} ${t.getDate()}`;
+  const todayDay=DAYS.find(d=>isToday(d));
+  const cont=document.getElementById('todayWeekContainer');cont.innerHTML='';
+  if(todayDay){
+    const di=DAYS.indexOf(todayDay);
+    if(todayDay.salExam){
+      document.getElementById('vtuBlock').className='time-block sal1';
+      document.getElementById('vtuBlock').querySelector('.tb-text').textContent='🏆 SAL1 EXAM MORNING';
+      document.getElementById('vtuBlock').querySelector('.tb-sub').textContent='Take exam BEFORE noon – last day voucher!';
+      document.getElementById('salBlock').className='time-block college';
+      document.getElementById('salBlock').querySelector('.tb-text').textContent='📚 AJ Revision (after exam)';
+      document.getElementById('salBlock').querySelector('.tb-sub').textContent='Light revision only';
+    } else if(todayDay.exam2){
+      document.getElementById('vtuBlock').className='time-block exam-block';
+    } else if(todayDay.lab){
+      document.getElementById('vtuBlock').className='time-block lab-block';
+    } else if(todayDay.vtuexam){
+      document.getElementById('vtuBlock').className='time-block exam-block';
+      if(todayDay.college[0])document.getElementById('todayVtuTask').textContent='🔴 '+todayDay.college[0].sec.replace(/^[🔴⚠️🔬]+\s*/,'');
+    }
+    if(todayDay.college.length&&!todayDay.salExam){
+      document.getElementById('todayVtuTask').textContent='📚 '+todayDay.college[0].sec.replace(/^[⚠️🔬🔴]+\s*/,'');
+      if(todayDay.college[0].tasks[0])document.getElementById('todayVtuSub').textContent=todayDay.college[0].tasks[0][1];
+    }
+    if(todayDay.sal.length&&!todayDay.salExam){
+      document.getElementById('todaySalTask').textContent='🛡️ '+todayDay.sal[0].sec;
+      if(todayDay.sal[0].tasks[0])document.getElementById('todaySalSub').textContent=todayDay.sal[0].tasks[0][1];
+    }
+    const wm=WEEK_META.find(w=>w.num===todayDay.week);
+    if(wm){
+      const wb=document.createElement('div');wb.className=`week-block ${wm.cls}`;
+      const wh=document.createElement('div');wh.className='week-header';
+      wh.innerHTML=`<h2>${wm.title}</h2><span class="wdate">${wm.date}</span>`;
+      wb.appendChild(wh);
+      const wbody=document.createElement('div');wbody.className='week-body';
+      const dr=document.createElement('div');dr.className='day-row';
+      const dh=document.createElement('div');dh.className='day-header today-row';
+      dh.innerHTML=`<span class="day-name">${todayDay.dn}</span><span class="day-date">${todayDay.dd}</span><span class="day-badge badge-todo" id="tbadge${di}">To Do</span>`;
+      const dc=document.createElement('div');dc.className='day-content';
+      dc.appendChild(buildDayContent(todayDay,di));
+      dr.appendChild(dh);dr.appendChild(dc);wbody.appendChild(dr);wb.appendChild(wbody);cont.appendChild(wb);
+    }
   } else {
-    // Today is not in the plan (e.g. rest day before plan starts)
-    document.getElementById('todayCollegeTask').textContent = '😴 Rest Day';
-    document.getElementById('todayCollegeSub').textContent = 'Plan kicks off Monday Apr 13';
-    document.getElementById('todaySalTask').textContent = '🛡️ SAL1 starts Monday';
-    document.getElementById('todaySalSub').textContent = 'Rest up — big week ahead!';
-
-    const msg = document.createElement('div');
-    msg.style.cssText = 'background:var(--bg2);border-radius:14px;border:1px solid var(--border2);padding:20px;text-align:center;margin-top:4px;';
-    msg.innerHTML = `
-      <div style="font-size:2rem;margin-bottom:8px;">🗓️</div>
-      <div style="font-family:\'Fraunces\',serif;font-size:1rem;font-weight:700;margin-bottom:6px;">No tasks today</div>
-      <div style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Your plan starts on <strong style="color:var(--sal)">Monday, Apr 13</strong>.<br>Use today to rest and prep mentally. 💪</div>
-    `;
-    cont.appendChild(msg);
+    cont.innerHTML=`<div style="text-align:center;padding:30px 20px;color:var(--muted);font-size:0.82rem;">Plan runs <strong style="color:var(--sal)">Apr 30 – Jun 12</strong>.<br>Rest up and get ready. 💪</div>`;
   }
 }
 
-// ─────────────────────────────────────────────
-// PROGRESS & BADGES
-// ─────────────────────────────────────────────
-function getAllTaskIds() {
-  const ids = {sal:[], clg:[], all:[]};
-  DAYS.forEach((day, di) => {
-    day.college.forEach((sec, si) => {
-      sec.tasks.forEach((t, ti) => {
-        const id = taskId(day.week, di, `c${si}`, ti);
-        ids.clg.push(id); ids.all.push(id);
-      });
-    });
-    day.sal.forEach((sec, si) => {
-      sec.tasks.forEach((t, ti) => {
-        const id = taskId(day.week, di, `s${si}`, ti);
-        ids.sal.push(id); ids.all.push(id);
-      });
-    });
+function getAllTaskIds(){
+  const ids={sal:[],clg:[],all:[]};
+  DAYS.forEach((day,di)=>{
+    day.college.forEach((sec,si)=>sec.tasks.forEach((_,ti)=>{const id=taskId(day.week,di,`clg${si}`,ti);ids.clg.push(id);ids.all.push(id);}));
+    day.sal.forEach((sec,si)=>sec.tasks.forEach((_,ti)=>{const id=taskId(day.week,di,`sal${si}`,ti);ids.sal.push(id);ids.all.push(id);}));
   });
   return ids;
 }
 
-function updateProgress() {
-  const ids = getAllTaskIds();
-  const salDone = ids.sal.filter(id => state[id]).length;
-  const clgDone = ids.clg.filter(id => state[id]).length;
-  const salPct = ids.sal.length ? Math.round(salDone/ids.sal.length*100) : 0;
-  const clgPct = ids.clg.length ? Math.round(clgDone/ids.clg.length*100) : 0;
-
-  document.getElementById('salBar').style.width = salPct + '%';
-  document.getElementById('clgBar').style.width = clgPct + '%';
-  document.getElementById('salPct').textContent = salPct + '%';
-  document.getElementById('clgPct').textContent = clgPct + '%';
-  document.getElementById('statSalDone').textContent = salDone;
-  document.getElementById('statClgDone').textContent = clgDone;
-  document.getElementById('statTotal').textContent = ids.all.length;
-
-  const daysLeft = Math.max(0, Math.ceil((new Date('2026-06-01') - new Date()) / 86400000));
-  const examDaysLeft = Math.max(0, Math.ceil((new Date('2026-05-17') - new Date()) / 86400000));
-  document.getElementById('statDaysLeft').textContent = daysLeft;
-  document.getElementById('bigCountdown').textContent = examDaysLeft;
-  document.getElementById('voucherCountdown').textContent = `⚡ ${daysLeft}d left`;
-
-  WEEK_META.forEach(wm => {
-    const el = document.getElementById('wpct' + wm.num);
-    if (!el) return;
-    const weekDays = DAYS.filter(d => d.week === wm.num);
-    let total = 0, done = 0;
-    weekDays.forEach((day) => {
-      const di = DAYS.indexOf(day);
-      day.college.forEach((sec,si) => sec.tasks.forEach((_,ti) => {
-        total++; if(state[taskId(day.week,di,`c${si}`,ti)]) done++;
-      }));
-      day.sal.forEach((sec,si) => sec.tasks.forEach((_,ti) => {
-        total++; if(state[taskId(day.week,di,`s${si}`,ti)]) done++;
-      }));
+function updateProgress(){
+  const ids=getAllTaskIds();
+  const salDone=ids.sal.filter(id=>state[id]).length;
+  const clgDone=ids.clg.filter(id=>state[id]).length;
+  const salPct=ids.sal.length?Math.round(salDone/ids.sal.length*100):0;
+  const clgPct=ids.clg.length?Math.round(clgDone/ids.clg.length*100):0;
+  document.getElementById('salBar').style.width=salPct+'%';
+  document.getElementById('clgBar').style.width=clgPct+'%';
+  document.getElementById('salPct').textContent=salPct+'%';
+  document.getElementById('clgPct').textContent=clgPct+'%';
+  document.getElementById('statSalDone').textContent=salDone;
+  document.getElementById('statClgDone').textContent=clgDone;
+  document.getElementById('statTotal').textContent=ids.all.length;
+  const daysLeft=Math.max(0,Math.ceil((new Date('2026-06-02')-new Date())/86400000));
+  const examDaysLeft=Math.max(0,Math.ceil((new Date('2026-06-02')-new Date())/86400000));
+  document.getElementById('statDaysLeft').textContent=daysLeft;
+  document.getElementById('bigCountdown').textContent=examDaysLeft;
+  document.getElementById('voucherCountdown').textContent=`⚡ ${daysLeft}d`;
+  WEEK_META.forEach(wm=>{
+    const el=document.getElementById('wpct'+wm.num);if(!el)return;
+    let total=0,done=0;
+    DAYS.filter(d=>d.week===wm.num).forEach(day=>{
+      const di=DAYS.indexOf(day);
+      day.college.forEach((sec,si)=>sec.tasks.forEach((_,ti)=>{total++;if(state[taskId(day.week,di,`clg${si}`,ti)])done++;}));
+      day.sal.forEach((sec,si)=>sec.tasks.forEach((_,ti)=>{total++;if(state[taskId(day.week,di,`sal${si}`,ti)])done++;}));
     });
-    el.textContent = total ? Math.round(done/total*100)+'%' : '0%';
+    el.textContent=total?Math.round(done/total*100)+'%':'0%';
   });
-
-  updateSubjectBars();
-  updateSalModuleBars();
+  updateSubjectBars();updateSalPhaseBars();
 }
 
-function updateSubjectBars() {
-  const bars = document.getElementById('subjectBars');
-  if (!bars) return;
-  bars.innerHTML = '';
-  SUBJECTS.forEach(sub => {
-    let total = 0, done = 0;
-    DAYS.forEach((day, di) => {
-      day.college.forEach((sec, si) => {
-        if (sec.tasks.some(t => t[1].includes(sub.code))) {
-          sec.tasks.forEach((t, ti) => {
-            if(t[1].includes(sub.code)) { total++; if(state[taskId(day.week,di,`c${si}`,ti)]) done++; }
-          });
-        }
-      });
-    });
-    const pct = total ? Math.round(done/total*100) : 0;
-    bars.innerHTML += `<div class="sub-bar-row">
-      <div class="sub-bar-info"><span class="sub-bar-name">${sub.name}</span><span class="sub-bar-pct">${done}/${total} · ${pct}%</span></div>
-      <div class="sub-bar-track"><div class="sub-bar-fill" style="width:${pct}%"></div></div>
-    </div>`;
-  });
-}
-
-function updateSalModuleBars() {
-  const bars = document.getElementById('salModuleBars');
-  if (!bars) return;
-  bars.innerHTML = '';
-  const domainTags = [
-    'Domain 1',
-    'Domain 2',
-    'Domain 3',
-    'Domain 4',
-    'Domain 5',
-    'SOC Simulator',
-    'Capstone',
-  ];
-  SAL_MODULES.forEach((mod, mi) => {
-    const tag = domainTags[mi];
-    let total = 0, done = 0;
-    DAYS.forEach((day, di) => {
-      day.sal.forEach((sec, si) => {
-        sec.tasks.forEach((t, ti) => {
-          if(t[1].includes(tag)) {
-            total++;
-            if(state[taskId(day.week,di,`s${si}`,ti)]) done++;
-          }
+function updateSubjectBars(){
+  const bars=document.getElementById('subjectBars');if(!bars)return;
+  bars.innerHTML='';
+  SUBJECTS.forEach(sub=>{
+    let total=0,done=0;
+    DAYS.forEach((day,di)=>{
+      day.college.forEach((sec,si)=>{
+        sec.tasks.forEach((t,ti)=>{
+          if(t[1].includes(sub.code)){total++;if(state[taskId(day.week,di,`clg${si}`,ti)])done++;}
         });
       });
     });
-    const pct = total ? Math.round(done/total*100) : 0;
-    bars.innerHTML += `<div class="sub-bar-row">
-      <div class="sub-bar-info"><span class="sub-bar-name" style="font-size:.72rem">${mod}</span><span class="sub-bar-pct">${done}/${total} · ${pct}%</span></div>
-      <div class="sub-bar-track"><div class="sub-bar-fill sal-fill" style="width:${pct}%"></div></div>
-    </div>`;
+    const pct=total?Math.round(done/total*100):0;
+    bars.innerHTML+=`<div class="sub-bar-row"><div class="sub-bar-info"><span class="sub-bar-name">${sub.name}</span><span class="sub-bar-pct">${done}/${total} · ${pct}%</span></div><div class="sub-bar-track"><div class="sub-bar-fill" style="width:${pct}%"></div></div></div>`;
   });
 }
 
-function updateBadges() {
-  DAYS.forEach((day, di) => {
-    const badge = document.getElementById('dbadge' + di);
-    if (!badge) return;
-    let total = 0, done = 0;
-    day.college.forEach((sec,si) => sec.tasks.forEach((_,ti) => {
-      total++; if(state[taskId(day.week,di,`c${si}`,ti)]) done++;
-    }));
-    day.sal.forEach((sec,si) => sec.tasks.forEach((_,ti) => {
-      total++; if(state[taskId(day.week,di,`s${si}`,ti)]) done++;
-    }));
-    if (done === total && total > 0) {
-      badge.textContent = '✅ Done'; badge.className = 'day-badge badge-done';
-    } else if (done > 0) {
-      badge.textContent = done+'/'+total; badge.className = 'day-badge badge-prog';
-    } else {
-      badge.textContent = 'To Do'; badge.className = 'day-badge badge-todo';
-    }
+function updateSalPhaseBars(){
+  const bars=document.getElementById('salModuleBars');if(!bars)return;
+  bars.innerHTML='';
+  SAL_PHASES.forEach(ph=>{
+    let total=0,done=0;
+    DAYS.forEach((day,di)=>{
+      day.sal.forEach((sec,si)=>{
+        sec.tasks.forEach((t,ti)=>{
+          if(t[1].includes(ph.tag)){total++;if(state[taskId(day.week,di,`sal${si}`,ti)])done++;}
+        });
+      });
+    });
+    const pct=total?Math.round(done/total*100):0;
+    bars.innerHTML+=`<div class="sub-bar-row"><div class="sub-bar-info"><span class="sub-bar-name" style="font-size:.7rem">${ph.name}</span><span class="sub-bar-pct">${done}/${total} · ${pct}%</span></div><div class="sub-bar-track"><div class="sub-bar-fill sal-fill" style="width:${pct}%"></div></div></div>`;
+  });
+}
+
+function updateBadges(){
+  DAYS.forEach((day,di)=>{
+    ['dbadge','tbadge'].forEach(prefix=>{
+      const badge=document.getElementById(prefix+di);if(!badge)return;
+      let total=0,done=0;
+      day.college.forEach((sec,si)=>sec.tasks.forEach((_,ti)=>{total++;if(state[taskId(day.week,di,`clg${si}`,ti)])done++;}));
+      day.sal.forEach((sec,si)=>sec.tasks.forEach((_,ti)=>{total++;if(state[taskId(day.week,di,`sal${si}`,ti)])done++;}));
+      if(done===total&&total>0){badge.textContent='✅ Done';badge.className='day-badge badge-done';}
+      else if(done>0){badge.textContent=done+'/'+total;badge.className='day-badge badge-prog';}
+      else{badge.textContent='To Do';badge.className='day-badge badge-todo';}
+    });
   });
   updateProgress();
 }
 
-// ─────────────────────────────────────────────
-// NAV
-// ─────────────────────────────────────────────
-function switchView(v) {
-  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.bnav-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('view-' + v).classList.add('active');
-  document.getElementById('btn-' + v).classList.add('active');
+function switchView(v){
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.bnav-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.getElementById('btn-'+v).classList.add('active');
 }
 
-function resetAll() {
-  if (!confirm('Reset ALL progress? This cannot be undone.')) return;
-  try { localStorage.removeItem(KEY); } catch(e){}
-  state = {};
-  document.querySelectorAll('.task-item.done').forEach(el => el.classList.remove('done'));
+function resetAll(){
+  if(!confirm('Reset ALL progress? This cannot be undone.'))return;
+  try{localStorage.removeItem(KEY);}catch(e){}
+  state={};
+  document.querySelectorAll('.task-item.done').forEach(el=>el.classList.remove('done'));
   updateBadges();
 }
 
-// ─────────────────────────────────────────────
-// PWA
-// ─────────────────────────────────────────────
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
-}
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault(); deferredPrompt = e;
-  document.getElementById('installBanner').classList.add('show');
-});
-document.getElementById('installBtn').addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt(); deferredPrompt = null;
-  document.getElementById('installBanner').classList.remove('show');
-});
-
-// ─────────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────────
-load();
-buildToday();
-buildPlan(document.getElementById('planContainer'));
-updateBadges();
+load();buildToday();buildPlan(document.getElementById('planContainer'));updateBadges();
 </script>
 </body>
 </html>
